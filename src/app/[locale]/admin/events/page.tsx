@@ -12,7 +12,9 @@ export default function AdminEventsPage() {
   const [autoTranslate, setAutoTranslate] = useState(true);
 
   const [newEvent, setNewEvent] = useState({
-    date: '',
+    startDateStr: '',
+    endDateStr: '',
+    location: '',
     isUpcoming: true,
     title_fr: '', title_en: '', title_de: '', title_es: '',
     desc_fr: '', desc_en: '', desc_de: '', desc_es: ''
@@ -29,7 +31,25 @@ export default function AdminEventsPage() {
     setLoading(false);
   };
 
+  const parseDate = (dateStr: string) => {
+    if (!dateStr) return null;
+    const parts = dateStr.split('/');
+    if (parts.length !== 3) return null;
+    // JJ/MM/AAAA -> YYYY-MM-DD
+    return new Date(`${parts[2]}-${parts[1]}-${parts[0]}T12:00:00.000Z`);
+  };
+
   const handleAdd = async () => {
+    const startDate = parseDate(newEvent.startDateStr);
+    if (!startDate || isNaN(startDate.getTime())) {
+      return alert("Veuillez entrer une date de début valide au format JJ/MM/AAAA.");
+    }
+    
+    const endDate = newEvent.endDateStr ? parseDate(newEvent.endDateStr) : null;
+    if (newEvent.endDateStr && (!endDate || isNaN(endDate.getTime()))) {
+      return alert("Veuillez entrer une date de fin valide au format JJ/MM/AAAA.");
+    }
+
     try {
       if (autoTranslate) {
         const { translateText } = await import('@/app/actions/translate');
@@ -43,22 +63,33 @@ export default function AdminEventsPage() {
         const desc_es = await translateText(newEvent.desc_fr, 'es');
 
         const eventData = {
-          ...newEvent,
-          title_en, title_de, title_es,
-          desc_en, desc_de, desc_es
+          startDate,
+          endDate,
+          location: newEvent.location,
+          isUpcoming: newEvent.isUpcoming,
+          title_fr: newEvent.title_fr, title_en, title_de, title_es,
+          desc_fr: newEvent.desc_fr, desc_en, desc_de, desc_es
         };
 
         await addEvent(eventData);
         alert("Événement ajouté et traduit automatiquement !");
       } else {
-        await addEvent(newEvent);
+        const eventData = {
+          startDate,
+          endDate,
+          location: newEvent.location,
+          isUpcoming: newEvent.isUpcoming,
+          title_fr: newEvent.title_fr, title_en: newEvent.title_en, title_de: newEvent.title_de, title_es: newEvent.title_es,
+          desc_fr: newEvent.desc_fr, desc_en: newEvent.desc_en, desc_de: newEvent.desc_de, desc_es: newEvent.desc_es
+        };
+        await addEvent(eventData);
         alert("Événement ajouté sans modifier vos traductions manuelles !");
       }
 
       setShowAdd(false);
       fetchEvents();
       setNewEvent({
-        date: '', isUpcoming: true,
+        startDateStr: '', endDateStr: '', location: '', isUpcoming: true,
         title_fr: '', title_en: '', title_de: '', title_es: '',
         desc_fr: '', desc_en: '', desc_de: '', desc_es: ''
       });
@@ -92,6 +123,21 @@ export default function AdminEventsPage() {
     setTranslating(false);
   };
 
+  const formatDate = (start: string | Date, end?: string | Date | null) => {
+    const s = new Date(start);
+    const dateOpts: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+    
+    if (!end) {
+      return new Intl.DateTimeFormat('fr-FR', dateOpts).format(s);
+    }
+    
+    const e = new Date(end);
+    if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
+      return `${s.getDate()} - ${new Intl.DateTimeFormat('fr-FR', dateOpts).format(e)}`;
+    }
+    return `${new Intl.DateTimeFormat('fr-FR', {day: 'numeric', month: 'short'}).format(s)} - ${new Intl.DateTimeFormat('fr-FR', dateOpts).format(e)}`;
+  };
+
   if (loading) return <div className="text-gold">Chargement...</div>;
 
   return (
@@ -113,10 +159,18 @@ export default function AdminEventsPage() {
         <div className="bg-[#111] border border-white/5 p-8 mb-10">
           <h2 className="text-xl font-serif text-white mb-6">Nouvel événement</h2>
           
-          <div className="grid grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div>
-              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Date (ex: 24 Septembre 2026)</label>
-              <input type="text" value={newEvent.date} onChange={e => setNewEvent({...newEvent, date: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
+              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Date de début (JJ/MM/AAAA)</label>
+              <input type="text" placeholder="Ex: 24/09/2026" value={newEvent.startDateStr} onChange={e => setNewEvent({...newEvent, startDateStr: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
+            </div>
+            <div>
+              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Date de fin (Optionnel)</label>
+              <input type="text" placeholder="Ex: 26/09/2026" value={newEvent.endDateStr} onChange={e => setNewEvent({...newEvent, endDateStr: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
+            </div>
+            <div>
+              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Lieu</label>
+              <input type="text" placeholder="Ex: Paris, France" value={newEvent.location} onChange={e => setNewEvent({...newEvent, location: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
             </div>
             <div className="flex items-center pt-8">
               <label className="flex items-center cursor-pointer text-gray-300">
@@ -204,7 +258,10 @@ export default function AdminEventsPage() {
             <div key={event.id} className="bg-[#111] border border-white/5 p-6 flex justify-between items-center hover:border-white/20 transition-colors">
               <div>
                 <h3 className="text-xl font-serif text-white mb-1">{event.title_fr}</h3>
-                <p className="text-gray-400 font-light text-sm">{event.date} {event.isUpcoming && <span className="ml-3 text-gold text-xs border border-gold px-2 py-1 uppercase">À venir</span>}</p>
+                <p className="text-gray-400 font-light text-sm">
+                  {formatDate(event.startDate, event.endDate)} {event.location && `- ${event.location}`}
+                  {event.isUpcoming && <span className="ml-3 text-gold text-xs border border-gold px-2 py-1 uppercase">À venir</span>}
+                </p>
               </div>
               <button onClick={() => handleDelete(event.id)} className="text-red-400 hover:text-red-300 p-2">
                 Supprimer

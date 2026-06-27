@@ -23,7 +23,26 @@ export default function EventsList({ events, locale }: { events: any[], locale: 
     }
   };
 
-  if (events.length === 0) {
+  // Sort events chronologically
+  const sortedEvents = [...events].sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+
+  const formatDate = (start: string | Date, end?: string | Date | null, loc: string = 'fr') => {
+    const s = new Date(start);
+    const dateOpts: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+    const localeCode = loc === 'en' ? 'en-US' : loc === 'es' ? 'es-ES' : loc === 'de' ? 'de-DE' : 'fr-FR';
+    
+    if (!end) {
+      return new Intl.DateTimeFormat(localeCode, dateOpts).format(s);
+    }
+    
+    const e = new Date(end);
+    if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
+      return `${s.getDate()} - ${new Intl.DateTimeFormat(localeCode, dateOpts).format(e)}`;
+    }
+    return `${new Intl.DateTimeFormat(localeCode, {day: 'numeric', month: 'short'}).format(s)} - ${new Intl.DateTimeFormat(localeCode, dateOpts).format(e)}`;
+  };
+
+  if (sortedEvents.length === 0) {
     return (
       <motion.div 
         initial={{ opacity: 0 }}
@@ -42,7 +61,7 @@ export default function EventsList({ events, locale }: { events: any[], locale: 
       animate="visible"
       className="space-y-10"
     >
-      {events.map((event) => {
+      {sortedEvents.map((event) => {
         const title = event[`title_${locale}`] || event.title_fr;
         const desc = event[`desc_${locale}`] || event.desc_fr;
         
@@ -59,8 +78,10 @@ export default function EventsList({ events, locale }: { events: any[], locale: 
               </div>
             )}
             <h3 className="font-serif text-3xl text-white mb-3 group-hover:text-gold transition-colors duration-300">{title}</h3>
-            <p className="text-gold-light font-light text-lg mb-6">{event.date}</p>
-            <p className="text-gray-300 font-light text-lg leading-relaxed">{desc}</p>
+            <p className="text-gold-light font-light text-lg mb-6">
+              {formatDate(event.startDate, event.endDate, locale)} {event.location && `- ${event.location}`}
+            </p>
+            <p className="text-gray-300 font-light text-lg leading-relaxed whitespace-pre-wrap">{desc}</p>
           </motion.div>
         );
       })}

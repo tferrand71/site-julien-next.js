@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
 export async function getEvents() {
-  return await prisma.event.findMany({ orderBy: { date: 'asc' } });
+  return await prisma.event.findMany({ orderBy: { startDate: 'asc' } });
 }
 
 export async function addEvent(data: any) {
