@@ -1,0 +1,48 @@
+{
+  "Navigation": {
+    "home": "Inicio",
+    "biography": "Biografía",
+    "events": "Agenda",
+    "media": "Medios",
+    "contact": "Contacto"
+  },
+  "Hero": {
+    "title": "Director de Orquesta",
+    "subtitle": "Reconocido por su eclecticismo y rigor, Julien Jacquemart es una de las figuras emergentes de la dirección de orquesta en Francia. Director Musical de la Brass Band Æolus y de la Orquesta de Vientos de Épehy, defiende una visión que aúna exigencia artística y apertura al público."
+  },
+  "Biography": {
+    "title": "Biografía",
+    "p1": "Nacido en 2000, Julien Jacquemart comenzó su trayectoria musical a los seis años en la Escuela Intercomunal de Música de Épehy, donde estudió trombón. Continuó su formación en el Conservatorio (CRD) de Cambrai y posteriormente en el Conservatorio (CRR) de Lille en la clase de Christian Bogaert. En la actualidad, sigue actuando activamente con diversas orquestas.",
+    "p2": "Tras obtener una licenciatura en Música y Musicología en la Universidad de Lille, Julien descubrió la dirección de orquesta a través de un encuentro decisivo con Gilles Czwartkowski. Esto le llevó al Real Conservatorio de Mons (Bélgica), donde cursó su máster en Dirección de Orquesta bajo la tutela de Nicolas Krüger. Allí perfeccionó su arte y se benefició de los consejos de renombrados directores y compositores como Aurélien Azan-Zielinski, Alexandre Bloch, Denis Comtet y Franck Villard, quienes moldearon su sensibilidad musical.",
+    "p3": "Julien Jacquemart ha dirigido prestigiosos conjuntos como la Orquesta Filarmónica Real de Lieja (notablemente en el Preludio a la siesta de un fauno de Debussy y la Obertura de El murciélago de Strauss), la Orquesta de Douai (Región de Alta Francia) y la Orquesta Sinfónica ARTS2. En 2022, fue director asistente en una producción de La Bohème de Puccini en el Festival Lírico de Samoëns.",
+    "p4": "Apasionado por la promoción de los instrumentos de metal y la música de conjunto, en 2024 se convirtió en el Director Musical de la Brass Band Æolus, un conjunto profesional con sede en París formado por músicos de conservatorios superiores y grandes orquestas. Con esta agrupación, dirige un programa ecléctico que combina repertorio original para brass band, creaciones contemporáneas y proyectos educativos ambiciosos.",
+    "p5": "Desde 2021, ha sido codirector y, a partir de 2025, Director Musical de la Orquesta de Vientos de Épehy, un conjunto amateur de alto nivel. Desarrolla proyectos unificadores y originales diseñados para públicos diversos, con especial atención a las zonas rurales donde el acceso a la cultura suele ser limitado.",
+    "p6": "Como educador comprometido, enseña trombón y formación musical en la Escuela Intercomunal de Música de Épehy, contribuyendo activamente a la formación de la nueva generación de músicos.",
+    "p7": "Comprometido con el diálogo intercultural, colabora con la Federación Internacional de Eurochestries. Inicialmente como trombón principal de la orquesta española Álvarez Beigbeder durante giras por Francia y China, será director invitado en 2025 en el Festival Eurochestries Brasil (Sobral), donde dirigirá un concierto internacional e impartirá clases magistrales.",
+    "p8": "Reconocido por su eclecticismo, rigor y compromiso con la transmisión musical, Julien Jacquemart defiende una visión de la dirección que combina excelencia artística, apertura al público y apoyo a la creación contemporánea. Su prometedora carrera y su apego a los territorios locales hacen de él uno de los representantes de la nueva generación de directores franceses.",
+    "download_title": "Prensa y Descargas",
+    "download_bio": "Descargar Biografía",
+    "download_cv": "Descargar CV"
+  },
+  "Events": {
+    "title": "Agenda",
+    "upcoming": "Próximamente",
+    "event1_title": "Concierto - Brass Band Æolus",
+    "event1_date": "Mayo 2025 - París",
+    "event1_desc": "Dirección Musical. En el programa: repertorio original y creaciones contemporáneas.",
+    "event2_title": "Festival Eurochestries Brasil",
+    "event2_date": "Julio 2025 - Sobral, Brasil",
+    "event2_desc": "Director Invitado. Dirección de un concierto internacional y clases magistrales."
+  },
+  "Media": {
+    "title": "Medios",
+    "placeholder_video": "Espacio para Video",
+    "placeholder_photo": "Espacio para Foto",
+    "placeholder_audio": "Espacio para Audio"
+  },
+  "Contact": {
+    "title": "Contacto",
+    "description": "Para cualquier consulta, propuesta de proyecto o clases magistrales, no dude en contactarme directamente por correo electrónico.",
+    "email": "julienjacquemartofficiel@gmail.com"
+  }
+}

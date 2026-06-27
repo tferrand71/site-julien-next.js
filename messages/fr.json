@@ -1,0 +1,48 @@
+{
+  "Navigation": {
+    "home": "Accueil",
+    "biography": "Biographie",
+    "events": "Agenda",
+    "media": "Médias",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Chef d'Orchestre",
+    "subtitle": "Reconnu pour son éclectisme et sa rigueur, Julien Jacquemart est l'une des figures montantes de la direction d'orchestre en France. Directeur Musical du Brass Band Æolus et de l'Orchestre d'Harmonie d'Épehy, il défend une vision alliant exigence artistique et ouverture aux publics."
+  },
+  "Biography": {
+    "title": "Biographie",
+    "p1": "Julien Jacquemart est un chef d'orchestre français, tromboniste et pédagogue, qui s'affirme comme l'une des figures montantes de la direction d'orchestre en France et à l'international. Né en 2000, il débute la musique à l'âge de 6 ans à l'École Intercommunale de Musique d'Épehy, où il étudie le trombone. Il poursuit sa formation au CRD de Cambrai, puis au CRR de Lille dans la classe de Christian Bogaert, et continue aujourd'hui à se produire au sein de divers orchestres.",
+    "p2": "Titulaire d'une licence de Musique et Musicologie de l'Université de Lille, il découvre la direction d'orchestre auprès de Gilles Czwartkowski, rencontre fondatrice qui l'amène à intégrer le Master de Direction d'Orchestre du Conservatoire Royal de Mons (Belgique), dans la classe de Nicolas Krüger. Il y perfectionne son art et bénéficie des conseils de chefs et compositeurs de renom tels qu'Aurélien Azan-Zielinski, Alexandre Bloch, Denis Comtet ou Franck Villard, qui nourrissent sa sensibilité musicale.",
+    "p3": "Julien Jacquemart a dirigé des formations telles que l'Orchestre Philharmonique Royal de Liège (notamment dans le Prélude à l'après-midi d'un faune de Debussy et l'Ouverture de Die Fledermaus de Strauss), l'Orchestre de Douai – Région Hauts-de-France (où il a dirigé des ciné-concerts scolaires), ou encore l'Orchestre Symphonique d'ARTS2. En 2022, il est chef assistant lors d'une production de La Bohème de Puccini au Festival Lyrique de Samoëns.",
+    "p4": "Passionné par la valorisation des cuivres et la musique d'ensemble, il devient en 2024 Directeur Musical du Brass Band Æolus, formation professionnelle basée à Paris réunissant des musiciens issus des conservatoires supérieurs et des grands orchestres. Avec cette formation, il mène une programmation éclectique, mêlant répertoire original pour brass band, créations contemporaines et actions pédagogiques ambitieuses.",
+    "p5": "Depuis 2021, il est co-directeur puis, à partir de 2025, Directeur Musical de l'Orchestre d'Harmonie d'Épehy, formation amateure de haut niveau. Il y développe des projets fédérateurs et originaux à destination de tous les publics, avec une attention particulière portée aux territoires ruraux où l'accès à la culture reste trop souvent limité.",
+    "p6": "Pédagogue engagé, il enseigne le trombone et la formation musicale à l'École Intercommunale de Musique d'Épehy, contribuant activement à la formation de la jeune génération de musiciens.",
+    "p7": "Attaché au dialogue entre les cultures, il collabore avec la Fédération Internationale des Eurochestries. D'abord en tant que trombone solo de l'orchestre espagnol Alvarez Beigbeder lors de tournées en France (Charente-Maritime) et en Chine (Qingdao), il est en 2025 chef invité au Festival Eurochestries Brésil (Sobral), où il dirige un concert international et dispense des masterclasses.",
+    "p8": "Reconnu pour son éclectisme, sa rigueur et son engagement dans la transmission de la musique, Julien Jacquemart défend une vision de la direction d'orchestre alliant exigence artistique, ouverture aux publics et soutien à la création contemporaine. Sa carrière prometteuse et son attachement aux territoires font de lui l'un des représentants de la jeune génération de chefs français.",
+    "download_title": "Presse & Téléchargements",
+    "download_bio": "Télécharger la Biographie",
+    "download_cv": "Télécharger le CV"
+  },
+  "Events": {
+    "title": "Agenda",
+    "upcoming": "À venir",
+    "event1_title": "Concert - Brass Band Æolus",
+    "event1_date": "Mai 2025 - Paris",
+    "event1_desc": "Direction musicale. Au programme : répertoire original et créations contemporaines.",
+    "event2_title": "Festival Eurochestries Brésil",
+    "event2_date": "Juillet 2025 - Sobral, Brésil",
+    "event2_desc": "Chef invité. Direction d'un concert international et animation de masterclasses."
+  },
+  "Media": {
+    "title": "Médias",
+    "placeholder_video": "Espace Vidéo",
+    "placeholder_photo": "Espace Photo",
+    "placeholder_audio": "Espace Audio"
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Pour toute demande de renseignements, proposition de projet ou masterclass, n'hésitez pas à me contacter directement par e-mail.",
+    "email": "julienjacquemartofficiel@gmail.com"
+  }
+}

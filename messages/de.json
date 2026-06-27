@@ -1,0 +1,48 @@
+{
+  "Navigation": {
+    "home": "Startseite",
+    "biography": "Biografie",
+    "events": "Agenda",
+    "media": "Medien",
+    "contact": "Kontakt"
+  },
+  "Hero": {
+    "title": "Dirigent",
+    "subtitle": "Bekannt für seinen Eklektizismus und seine Strenge, ist Julien Jacquemart eine der aufstrebenden Figuren des Orchesterdirigierens in Frankreich. Als musikalischer Leiter der Brass Band Æolus und des Épehy Wind Orchestra vertritt er eine Vision, die künstlerische Exzellenz und Publikumsnähe verbindet."
+  },
+  "Biography": {
+    "title": "Biografie",
+    "p1": "Julien Jacquemart wurde 2000 geboren und begann seine musikalische Laufbahn im Alter von sechs Jahren an der interkommunalen Musikschule von Épehy, wo er Posaune lernte. Er setzte seine Ausbildung am Konservatorium (CRD) von Cambrai und anschließend am Konservatorium (CRR) von Lille in der Klasse von Christian Bogaert fort. Heute tritt er weiterhin aktiv mit verschiedenen Orchestern auf.",
+    "p2": "Nach einem Bachelor-Abschluss in Musik und Musikwissenschaft an der Universität Lille entdeckte Julien das Dirigieren durch eine entscheidende Begegnung mit Gilles Czwartkowski. Dies führte ihn an das Königliche Konservatorium von Mons (Belgien), wo er sein Masterstudium im Fach Orchesterdirigieren bei Nicolas Krüger absolvierte. Dort verfeinerte er seine Kunst und profitierte von den Ratschlägen renommierter Dirigenten und Komponisten wie Aurélien Azan-Zielinski, Alexandre Bloch, Denis Comtet und Franck Villard, die seine musikalische Sensibilität prägten.",
+    "p3": "Julien Jacquemart hat renommierte Ensembles wie das Orchestre Philharmonique Royal de Liège (insbesondere in Debussys Prélude à l'après-midi d'un faune und Strauss' Die Fledermaus-Ouvertüre), das Orchestre de Douai (Region Hauts-de-France) und das ARTS2 Symphony Orchestra dirigiert. Im Jahr 2022 war er Assistenzdirigent bei einer Produktion von Puccinis La Bohème beim Lyric Festival von Samoëns.",
+    "p4": "Aus Leidenschaft für die Förderung von Blechblasinstrumenten und der Ensemblemusik wurde er 2024 musikalischer Leiter der Brass Band Æolus, eines professionellen Ensembles mit Sitz in Paris, das sich aus Musikern von höheren Konservatorien und großen Orchestern zusammensetzt. Mit dieser Gruppe leitet er ein eklektisches Programm, das Originalrepertoire für Brassband, zeitgenössische Kreationen und ehrgeizige pädagogische Projekte kombiniert.",
+    "p5": "Seit 2021 ist er Co-Direktor und ab 2025 musikalischer Leiter des Épehy Wind Orchestra, eines hochkarätigen Amateurensembles. Er entwickelt verbindende und originelle Projekte für ein vielfältiges Publikum, mit besonderem Augenmerk auf ländliche Gebiete, in denen der Zugang zu Kultur oft noch zu eingeschränkt ist.",
+    "p6": "Als engagierter Pädagoge unterrichtet er Posaune und Musikerziehung an der interkommunalen Musikschule von Épehy und trägt aktiv zur Ausbildung der neuen Musikergeneration bei.",
+    "p7": "Er engagiert sich für den interkulturellen Dialog und arbeitet mit der International Federation of Eurochestries zusammen. Zunächst als Solo-Posaunist des spanischen Orchesters Alvarez Beigbeder auf Tourneen durch Frankreich und China, wird er 2025 als Gastdirigent beim Eurochestries Brazil Festival (Sobral) auftreten, wo er ein internationales Konzert dirigieren und Meisterkurse geben wird.",
+    "p8": "Julien Jacquemart ist für seinen Eklektizismus, seine Strenge und sein Engagement für die Musikvermittlung bekannt. Er vertritt eine Vision des Dirigierens, die künstlerische Exzellenz, Offenheit für das Publikum und die Unterstützung zeitgenössischen Schaffens vereint. Seine vielversprechende Karriere und seine Verbundenheit mit lokalen Regionen machen ihn zu einem Repräsentanten der neuen Generation französischer Dirigenten.",
+    "download_title": "Presse & Downloads",
+    "download_bio": "Biografie Herunterladen",
+    "download_cv": "Lebenslauf Herunterladen"
+  },
+  "Events": {
+    "title": "Agenda",
+    "upcoming": "Demnächst",
+    "event1_title": "Konzert - Brass Band Æolus",
+    "event1_date": "Mai 2025 - Paris",
+    "event1_desc": "Musikalische Leitung. Auf dem Programm: Originalrepertoire und zeitgenössische Kreationen.",
+    "event2_title": "Eurochestries Festival Brasilien",
+    "event2_date": "Juli 2025 - Sobral, Brasilien",
+    "event2_desc": "Gastdirigent. Leitung eines internationalen Konzerts und Meisterkurse."
+  },
+  "Media": {
+    "title": "Medien",
+    "placeholder_video": "Video-Bereich",
+    "placeholder_photo": "Foto-Bereich",
+    "placeholder_audio": "Audio-Bereich"
+  },
+  "Contact": {
+    "title": "Kontakt",
+    "description": "Für Anfragen, Projektvorschläge oder Meisterkurse kontaktieren Sie mich gerne direkt per E-Mail.",
+    "email": "julienjacquemartofficiel@gmail.com"
+  }
+}

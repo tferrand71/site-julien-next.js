@@ -1,0 +1,48 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "biography": "Biography",
+    "events": "Agenda",
+    "media": "Media",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Conductor",
+    "subtitle": "Recognized for his eclecticism and rigor, Julien Jacquemart is one of the rising figures in orchestral conducting. As Music Director of the Brass Band Æolus and the Épehy Wind Orchestra, he upholds a vision combining artistic excellence and audience accessibility."
+  },
+  "Biography": {
+    "title": "Biography",
+    "p1": "Born in 2000, he began his musical journey at the age of six at the Épehy Intercommunal Music School, where he studied trombone. He continued his training at the Cambrai Conservatory and subsequently at the Lille Conservatory (CRR) in the class of Christian Bogaert. Today, he continues to perform actively with various orchestras.",
+    "p2": "Holding a Bachelor's degree in Music and Musicology from the University of Lille, Julien discovered conducting through a pivotal encounter with Gilles Czwartkowski. This led him to the Royal Conservatory of Mons (Belgium), where he joined the Master's program in Orchestral Conducting under Nicolas Krüger. There, he honed his craft and benefited from the mentorship of renowned conductors and composers such as Aurélien Azan-Zielinski, Alexandre Bloch, Denis Comtet, and Franck Villard, all of whom helped shape his musical sensibility.",
+    "p3": "Julien Jacquemart has conducted prestigious ensembles such as the Royal Philharmonic Orchestra of Liège (notably in Debussy's Prélude à l'après-midi d'un faune and Strauss's Die Fledermaus Overture), the Douai Orchestra (Hauts-de-France Region), and the ARTS2 Symphony Orchestra. In 2022, he served as assistant conductor for a production of Puccini's La Bohème at the Samoëns Lyric Festival.",
+    "p4": "Passionate about championing brass instruments and ensemble music, in 2024 he became the Music Director of the Brass Band Æolus, a Paris-based professional ensemble comprised of musicians from higher conservatories and major orchestras. With this group, he leads an eclectic program combining original brass band repertoire, contemporary creations, and ambitious educational outreach.",
+    "p5": "Since 2021, he has served as co-director and, as of 2025, Music Director of the Épehy Wind Orchestra, a high-level amateur ensemble. He develops unifying and original projects designed for diverse audiences, with a particular focus on rural areas where access to culture is often limited.",
+    "p6": "A committed educator, he teaches trombone and musicianship at the Épehy Intercommunal Music School, actively contributing to the training of the next generation of musicians.",
+    "p7": "Committed to intercultural dialogue, he collaborates with the International Federation of Eurochestries. Initially as principal trombone of the Spanish Alvarez Beigbeder orchestra during tours in France and China, he will be guest conductor in 2025 at the Eurochestries Brazil Festival (Sobral), where he will conduct an international concert and give masterclasses.",
+    "p8": "Recognized for his eclecticism, rigor, and commitment to music transmission, Julien Jacquemart defends a vision of conducting that combines artistic excellence, openness to audiences, and support for contemporary creation. His promising career and attachment to local territories make him one of the representatives of the new generation of French conductors.",
+    "download_title": "Press & Downloads",
+    "download_bio": "Download Biography",
+    "download_cv": "Download CV"
+  },
+  "Events": {
+    "title": "Agenda",
+    "upcoming": "Upcoming",
+    "event1_title": "Concert - Brass Band Æolus",
+    "event1_date": "May 2025 - Paris",
+    "event1_desc": "Musical Direction. Program: original repertoire and contemporary creations.",
+    "event2_title": "Eurochestries Festival Brazil",
+    "event2_date": "July 2025 - Sobral, Brazil",
+    "event2_desc": "Guest Conductor. Direction of an international concert and masterclasses."
+  },
+  "Media": {
+    "title": "Media",
+    "placeholder_video": "Video Space",
+    "placeholder_photo": "Photo Space",
+    "placeholder_audio": "Audio Space"
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "For any inquiries, project proposals, or masterclasses, please feel free to contact me directly by e-mail.",
+    "email": "julienjacquemartofficiel@gmail.com"
+  }
+}
