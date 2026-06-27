@@ -1,12 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function Hero() {
-  const t = useTranslations('Hero');
-
+export default function Hero({ title, subtitle }: { title: string, subtitle: string }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,13 +52,13 @@ export default function Hero() {
           </motion.h1>
           
           <motion.h2 variants={itemVariants} className="text-xl md:text-2xl font-light tracking-[0.3em] uppercase text-gray-300">
-            {t('title')}
+            {title}
           </motion.h2>
           
           <motion.div variants={itemVariants} className="w-24 h-[2px] bg-red-dark mx-auto md:mx-0"></motion.div>
           
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-400 font-light max-w-xl mx-auto md:mx-0 leading-relaxed">
-            {t('subtitle')}
+            {subtitle}
           </motion.p>
         </motion.div>
         

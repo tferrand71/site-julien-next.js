@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model HeroContent {
+  id          Int    @id @default(1)
+  title_fr    String @default("CHEF D'ORCHESTRE")
+  title_en    String @default("CONDUCTOR")
+  title_de    String @default("DIRIGENT")
+  title_es    String @default("DIRECTOR DE ORQUESTA")
+  subtitle_fr String @default("Tromboniste & Pédagogue")
+  subtitle_en String @default("Trombonist & Educator")
+  subtitle_de String @default("Posaunist & Pädagoge")
+  subtitle_es String @default("Trombonista y Educador")
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  date        String
+  isUpcoming  Boolean  @default(true)
+  title_fr    String
+  title_en    String
+  title_de    String
+  title_es    String
+  desc_fr     String
+  desc_en     String
+  desc_de     String
+  desc_es     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Biography {
+  id          Int    @id @default(1)
+  content_fr  String @default("")
+  content_en  String @default("")
+  content_de  String @default("")
+  content_es  String @default("")
+  cvUrl       String?
+  bioUrl      String?
+}
