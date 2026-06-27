@@ -25,7 +25,9 @@ model HeroContent {
 
 model Event {
   id          String   @id @default(uuid())
-  date        String
+  startDate   DateTime
+  endDate     DateTime?
+  location    String?
   isUpcoming  Boolean  @default(true)
   title_fr    String
   title_en    String
