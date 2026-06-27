@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
-export default function Biography() {
+export default function Biography({ title, content, cvUrl, bioUrl }: { title: string, content: string, cvUrl: string, bioUrl: string }) {
   const t = useTranslations('Biography');
 
   const paragraphVariants = {
@@ -15,6 +15,8 @@ export default function Biography() {
     }
   };
 
+  const paragraphs = content.split('\n').filter(p => p.trim() !== '');
+
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
@@ -25,28 +27,27 @@ export default function Biography() {
           variants={paragraphVariants}
           className="text-center mb-20"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-widest mb-6">{t('title')}</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-widest mb-6">{title}</h2>
           <div className="w-16 h-1 bg-gold mx-auto"></div>
         </motion.div>
 
         <div className="space-y-12 text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => {
-            const text = t(`p${index}` as any);
-            if (!text) return null;
-            
-            return (
+          {paragraphs.length > 0 ? (
+            paragraphs.map((text, index) => (
               <motion.p 
                 key={index}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={paragraphVariants}
-                className={index === 1 ? "first-letter:text-5xl first-letter:font-serif first-letter:text-gold first-letter:float-left first-letter:mr-4 first-letter:mt-2" : ""}
+                className={index === 0 ? "first-letter:text-5xl first-letter:font-serif first-letter:text-gold first-letter:float-left first-letter:mr-4 first-letter:mt-2" : ""}
               >
                 {text}
               </motion.p>
-            );
-          })}
+            ))
+          ) : (
+            <p className="text-center italic text-gray-500">Biographie en cours de rédaction...</p>
+          )}
         </div>
 
         {/* Espace Téléchargements / Press Kit */}
@@ -68,7 +69,7 @@ export default function Biography() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <a 
-              href="/biographie-julien-jacquemart.pdf" 
+              href={bioUrl} 
               download
               target="_blank"
               rel="noopener noreferrer"
@@ -81,7 +82,7 @@ export default function Biography() {
             </a>
 
             <a 
-              href="/cv-julien-jacquemart.pdf" 
+              href={cvUrl} 
               download
               target="_blank"
               rel="noopener noreferrer"
