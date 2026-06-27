@@ -50,3 +50,10 @@ model Biography {
   cvUrl       String?
   bioUrl      String?
 }
+
+model VideoConfig {
+  id        String  @id @default(uuid())
+  youtubeId String  @unique
+  isHidden  Boolean @default(false)
+  order     Int     @default(0)
+}
