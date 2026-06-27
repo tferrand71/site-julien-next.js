@@ -88,7 +88,7 @@ export default function AdminMediaPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <div>
           <h1 className="font-serif text-3xl font-bold tracking-widest mb-2">Média (Vidéos)</h1>
           <p className="text-gray-400 font-light">Gérez l'ordre et la visibilité de vos vidéos YouTube sur le site.</p>
@@ -96,7 +96,7 @@ export default function AdminMediaPage() {
         <button 
           onClick={handleSave}
           disabled={saving}
-          className="bg-gold hover:bg-gold-light text-black px-6 py-3 font-semibold tracking-widest uppercase text-sm disabled:opacity-50 transition-colors"
+          className="bg-gold hover:bg-gold-light text-black px-6 py-3 font-semibold tracking-widest uppercase text-sm disabled:opacity-50 transition-colors w-full sm:w-auto"
         >
           {saving ? 'Sauvegarde...' : 'Enregistrer les modifications'}
         </button>
@@ -112,80 +112,84 @@ export default function AdminMediaPage() {
           {videos.map((video, index) => (
             <div 
               key={video.id} 
-              className={`bg-[#111] border p-4 flex items-center gap-6 transition-all ${
+              className={`bg-[#111] border p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 transition-all ${
                 video.isHidden ? 'border-red-900/50 opacity-60' : 'border-white/10 hover:border-white/20'
               }`}
             >
-              {/* Controls */}
-              <div className="flex flex-col gap-2">
-                <button 
-                  onClick={() => handleMoveUp(index)}
-                  disabled={index === 0}
-                  className="text-gray-500 hover:text-white disabled:opacity-30 disabled:hover:text-gray-500"
-                  title="Monter"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                  </svg>
-                </button>
-                <button 
-                  onClick={() => handleMoveDown(index)}
-                  disabled={index === videos.length - 1}
-                  className="text-gray-500 hover:text-white disabled:opacity-30 disabled:hover:text-gray-500"
-                  title="Descendre"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-                </button>
-              </div>
+              <div className="flex items-center gap-4 w-full sm:w-auto">
+                {/* Controls */}
+                <div className="flex sm:flex-col gap-2">
+                  <button 
+                    onClick={() => handleMoveUp(index)}
+                    disabled={index === 0}
+                    className="text-gray-500 hover:text-white disabled:opacity-30 disabled:hover:text-gray-500 p-2 sm:p-0 bg-white/5 sm:bg-transparent rounded"
+                    title="Monter"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                  </button>
+                  <button 
+                    onClick={() => handleMoveDown(index)}
+                    disabled={index === videos.length - 1}
+                    className="text-gray-500 hover:text-white disabled:opacity-30 disabled:hover:text-gray-500 p-2 sm:p-0 bg-white/5 sm:bg-transparent rounded"
+                    title="Descendre"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </button>
+                </div>
 
-              {/* Thumbnail */}
-              <div className="relative w-32 aspect-video bg-black flex-shrink-0">
-                <Image 
-                  src={video.thumbnail} 
-                  alt={video.title} 
-                  fill 
-                  className="object-cover"
-                  sizes="128px"
-                  unoptimized // YouTube thumbnails are already optimized and sometimes block next/image without domain config
-                />
+                {/* Thumbnail */}
+                <div className="relative w-32 aspect-video bg-black flex-shrink-0">
+                  <Image 
+                    src={video.thumbnail} 
+                    alt={video.title} 
+                    fill 
+                    className="object-cover"
+                    sizes="128px"
+                    unoptimized
+                  />
+                </div>
               </div>
 
               {/* Title */}
-              <div className="flex-grow">
-                <h3 className={`font-serif text-lg ${video.isHidden ? 'text-gray-500 line-through' : 'text-white'}`}>
+              <div className="flex-grow w-full">
+                <h3 className={`font-serif text-lg leading-tight ${video.isHidden ? 'text-gray-500 line-through' : 'text-white'}`}>
                   {video.title}
                 </h3>
-                <p className="text-gray-500 text-sm mt-1 font-mono">ID: {video.id}</p>
+                <p className="text-gray-500 text-xs sm:text-sm mt-1 font-mono">ID: {video.id}</p>
               </div>
 
               {/* Visibility Toggle */}
-              <button 
-                onClick={() => toggleHidden(video.id)}
-                className={`flex items-center gap-2 px-4 py-2 border text-sm tracking-widest uppercase transition-colors ${
-                  video.isHidden 
-                    ? 'border-red-500/30 text-red-400 hover:bg-red-500/10' 
-                    : 'border-white/20 text-gray-300 hover:bg-white/5'
-                }`}
-              >
-                {video.isHidden ? (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-                    </svg>
-                    Cachée
-                  </>
-                ) : (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    Visible
-                  </>
-                )}
-              </button>
+              <div className="w-full sm:w-auto border-t sm:border-none border-white/5 pt-3 sm:pt-0 mt-1 sm:mt-0">
+                <button 
+                  onClick={() => toggleHidden(video.id)}
+                  className={`flex items-center justify-center gap-2 px-4 py-2 w-full sm:w-auto border text-sm tracking-widest uppercase transition-colors ${
+                    video.isHidden 
+                      ? 'border-red-500/30 text-red-400 hover:bg-red-500/10' 
+                      : 'border-white/20 text-gray-300 hover:bg-white/5'
+                  }`}
+                >
+                  {video.isHidden ? (
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                      </svg>
+                      Cachée
+                    </>
+                  ) : (
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      Visible
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           ))}
         </div>

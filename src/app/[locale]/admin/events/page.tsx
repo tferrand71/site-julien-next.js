@@ -142,21 +142,21 @@ export default function AdminEventsPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <div>
           <h1 className="font-serif text-3xl font-bold tracking-widest mb-2">Agenda (Événements)</h1>
           <p className="text-gray-400 font-light">Gérez les dates de vos prochains concerts ou masterclasses.</p>
         </div>
         <button 
           onClick={() => setShowAdd(!showAdd)}
-          className="bg-gold text-black px-6 py-3 font-semibold tracking-widest uppercase text-sm"
+          className="bg-gold text-black px-6 py-3 font-semibold tracking-widest uppercase text-sm w-full sm:w-auto"
         >
           {showAdd ? 'Annuler' : 'Ajouter une date'}
         </button>
       </div>
 
       {showAdd && (
-        <div className="bg-[#111] border border-white/5 p-8 mb-10">
+        <div className="bg-[#111] border border-white/5 p-6 sm:p-8 mb-10">
           <h2 className="text-xl font-serif text-white mb-6">Nouvel événement</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -168,11 +168,11 @@ export default function AdminEventsPage() {
               <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Date de fin (Optionnel)</label>
               <input type="text" placeholder="Ex: 26/09/2026" value={newEvent.endDateStr} onChange={e => setNewEvent({...newEvent, endDateStr: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
             </div>
-            <div>
+            <div className="md:col-span-2">
               <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Lieu</label>
               <input type="text" placeholder="Ex: Paris, France" value={newEvent.location} onChange={e => setNewEvent({...newEvent, location: e.target.value})} className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
             </div>
-            <div className="flex items-center pt-8">
+            <div className="flex items-center md:col-span-2">
               <label className="flex items-center cursor-pointer text-gray-300">
                 <input type="checkbox" checked={newEvent.isUpcoming} onChange={e => setNewEvent({...newEvent, isUpcoming: e.target.checked})} className="mr-3 w-5 h-5 accent-gold" />
                 Événement à venir (Afficher le badge)
@@ -181,13 +181,13 @@ export default function AdminEventsPage() {
           </div>
 
           {/* Tabs for translation */}
-          <div className="flex justify-between items-end mb-6 border-b border-white/10 pb-4">
-            <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6 border-b border-white/10 pb-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4">
               {['fr', 'en', 'de', 'es'].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setActiveTab(lang)}
-                  className={`px-4 py-2 font-light tracking-widest uppercase text-sm transition-colors ${
+                  className={`px-3 py-2 font-light tracking-widest uppercase text-xs sm:text-sm transition-colors ${
                     activeTab === lang ? 'text-gold border-b-2 border-gold' : 'text-gray-500 hover:text-white'
                   }`}
                 >
@@ -199,7 +199,7 @@ export default function AdminEventsPage() {
               <button
                 onClick={handleTranslate}
                 disabled={translating}
-                className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
+                className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors disabled:opacity-50 w-full sm:w-auto mt-2 sm:mt-0"
               >
                 {translating ? 'Traduction...' : 'Traduire depuis FR'}
               </button>
@@ -221,26 +221,26 @@ export default function AdminEventsPage() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-8 pt-6 border-t border-white/5">
             <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
               <input 
                 type="checkbox" 
                 checked={autoTranslate} 
                 onChange={(e) => setAutoTranslate(e.target.checked)}
-                className="accent-gold w-4 h-4"
+                className="accent-gold w-4 h-4 flex-shrink-0"
               />
-              Générer et écraser les autres langues avec la traduction
+              <span className="leading-tight">Générer et écraser les autres langues avec la traduction</span>
             </label>
-            <div className="flex gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
               <button
                 onClick={() => setShowAdd(false)}
-                className="flex-1 sm:flex-none border border-white/20 hover:bg-white/5 text-white px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
+                className="w-full sm:w-auto border border-white/20 hover:bg-white/5 text-white px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
               >
                 Annuler
               </button>
               <button
                 onClick={handleAdd}
-                className="flex-1 sm:flex-none bg-gold hover:bg-gold-light text-black px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
+                className="w-full sm:w-auto bg-gold hover:bg-gold-light text-black px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
               >
                 Ajouter cet événement
               </button>
@@ -255,15 +255,15 @@ export default function AdminEventsPage() {
           <p className="text-gray-500 italic">Aucun événement n'est programmé pour le moment.</p>
         ) : (
           events.map(event => (
-            <div key={event.id} className="bg-[#111] border border-white/5 p-6 flex justify-between items-center hover:border-white/20 transition-colors">
+            <div key={event.id} className="bg-[#111] border border-white/5 p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-white/20 transition-colors">
               <div>
-                <h3 className="text-xl font-serif text-white mb-1">{event.title_fr}</h3>
-                <p className="text-gray-400 font-light text-sm">
-                  {formatDate(event.startDate, event.endDate)} {event.location && `- ${event.location}`}
-                  {event.isUpcoming && <span className="ml-3 text-gold text-xs border border-gold px-2 py-1 uppercase">À venir</span>}
+                <h3 className="text-lg sm:text-xl font-serif text-white mb-1">{event.title_fr}</h3>
+                <p className="text-gray-400 font-light text-sm flex flex-col sm:block gap-1">
+                  <span>{formatDate(event.startDate, event.endDate)} {event.location && `- ${event.location}`}</span>
+                  {event.isUpcoming && <span className="sm:ml-3 inline-block w-max text-gold text-xs border border-gold px-2 py-0.5 sm:py-1 uppercase">À venir</span>}
                 </p>
               </div>
-              <button onClick={() => handleDelete(event.id)} className="text-red-400 hover:text-red-300 p-2">
+              <button onClick={() => handleDelete(event.id)} className="text-red-400 hover:text-red-300 py-2 sm:p-2 w-full sm:w-auto text-left sm:text-right border-t sm:border-none border-white/5 mt-2 sm:mt-0">
                 Supprimer
               </button>
             </div>

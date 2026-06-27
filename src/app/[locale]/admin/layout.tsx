@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 export default function AdminLayout({
@@ -9,6 +10,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: 'Aperçu', path: '/admin', icon: 'M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z' },
@@ -26,63 +28,96 @@ export default function AdminLayout({
         <span className="font-serif text-[800px] text-white rotate-[-5deg]">&#x1D11E;</span>
       </div>
 
-      {/* Sidebar */}
-      <aside className="w-full md:w-72 bg-[#111] border-r border-white/5 flex flex-col z-20">
-        
-        {/* Logo Area */}
-        <div className="p-10 border-b border-white/5 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+      {/* Mobile Top Bar */}
+      <div className="md:hidden flex items-center justify-between bg-[#111] border-b border-white/5 p-4 z-30 sticky top-0">
+        <div className="flex items-center gap-3">
+          <h2 className="font-serif text-lg tracking-[0.2em] text-white">STUDIO</h2>
+          <span className="w-1 h-1 rounded-full bg-gold"></span>
+        </div>
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-white p-2 hover:bg-white/5 rounded-md transition-colors"
+          aria-label="Menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Sidebar Content (Desktop & Mobile Dropdown) */}
+      <AnimatePresence>
+        {(isMobileMenuOpen || typeof window !== 'undefined' && window.innerWidth >= 768) && (
+          <motion.aside 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className={`w-full md:w-72 bg-[#111] border-b md:border-b-0 md:border-r border-white/5 flex flex-col z-20 ${
+              isMobileMenuOpen ? 'block' : 'hidden md:flex'
+            }`}
           >
-            <h2 className="font-serif text-2xl tracking-[0.3em] text-white mb-2">STUDIO</h2>
-            <div className="w-12 h-[1px] bg-gold mx-auto mb-3"></div>
-            <p className="text-gray-500 text-[10px] tracking-[0.2em] uppercase font-light">Espace Julien Jacquemart</p>
-          </motion.div>
-        </div>
-        
-        {/* Navigation */}
-        <nav className="flex-grow p-6 space-y-1">
-          {navItems.map((item, idx) => {
-            const isActive = pathname.endsWith(item.path) || (item.path !== '/admin' && pathname.includes(item.path));
             
-            return (
-              <motion.a 
-                key={item.name}
-                href={item.path}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className={`flex items-center gap-4 px-4 py-3.5 rounded-sm transition-all duration-300 ${
-                  isActive 
-                    ? 'bg-gold/10 text-gold' 
-                    : 'text-gray-400 hover:text-white hover:bg-white/[0.02]'
-                }`}
+            {/* Logo Area (Desktop Only) */}
+            <div className="hidden md:block p-10 border-b border-white/5 text-center">
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                </svg>
-                <span className="font-light tracking-widest text-xs uppercase">{item.name}</span>
-              </motion.a>
-            );
-          })}
-        </nav>
-        
-        {/* Logout Area */}
-        <div className="p-6">
-          <form action="/api/logout" method="POST">
-            <button type="submit" className="group flex items-center gap-3 w-full px-4 py-3 text-gray-500 hover:text-white transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-              </svg>
-              <span className="text-xs tracking-widest uppercase font-light">Déconnexion</span>
-            </button>
-          </form>
-        </div>
-      </aside>
+                <h2 className="font-serif text-2xl tracking-[0.3em] text-white mb-2">STUDIO</h2>
+                <div className="w-12 h-[1px] bg-gold mx-auto mb-3"></div>
+                <p className="text-gray-500 text-[10px] tracking-[0.2em] uppercase font-light">Espace Julien Jacquemart</p>
+              </motion.div>
+            </div>
+            
+            {/* Navigation */}
+            <nav className="flex-grow p-4 md:p-6 space-y-1">
+              {navItems.map((item, idx) => {
+                const isActive = pathname.endsWith(item.path) || (item.path !== '/admin' && pathname.includes(item.path));
+                
+                return (
+                  <motion.a 
+                    key={item.name}
+                    href={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className={`flex items-center gap-4 px-4 py-3.5 rounded-sm transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-gold/10 text-gold' 
+                        : 'text-gray-400 hover:text-white hover:bg-white/[0.02]'
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                    </svg>
+                    <span className="font-light tracking-widest text-xs uppercase">{item.name}</span>
+                  </motion.a>
+                );
+              })}
+            </nav>
+            
+            {/* Logout Area */}
+            <div className="p-4 md:p-6 border-t border-white/5 md:border-none">
+              <form action="/api/logout" method="POST">
+                <button type="submit" className="group flex items-center gap-3 w-full px-4 py-3 text-gray-500 hover:text-white transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                  </svg>
+                  <span className="text-xs tracking-widest uppercase font-light">Déconnexion</span>
+                </button>
+              </form>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
 
       {/* Main Content Area */}
-      <main className="flex-grow p-8 md:p-16 z-10 overflow-y-auto">
+      <main className="flex-grow p-4 sm:p-8 md:p-16 z-10 overflow-y-auto">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
