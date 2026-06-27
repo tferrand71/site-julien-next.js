@@ -19,9 +19,32 @@ export default function AdminHeroPage() {
 
   const handleSave = async () => {
     setSaving(true);
-    await updateHeroContent(data);
+    try {
+      const { translateText } = await import('@/app/actions/translate');
+      
+      // Auto-translate title
+      const title_en = await translateText(data.title_fr, 'en');
+      const title_de = await translateText(data.title_fr, 'de');
+      const title_es = await translateText(data.title_fr, 'es');
+      
+      // Auto-translate subtitle
+      const subtitle_en = await translateText(data.subtitle_fr, 'en');
+      const subtitle_de = await translateText(data.subtitle_fr, 'de');
+      const subtitle_es = await translateText(data.subtitle_fr, 'es');
+      
+      const newData = { 
+        ...data, 
+        title_en, title_de, title_es,
+        subtitle_en, subtitle_de, subtitle_es
+      };
+      
+      setData(newData);
+      await updateHeroContent(newData);
+      alert('Textes traduits automatiquement et sauvegardés avec succès !');
+    } catch (error) {
+      alert("Erreur lors de la traduction ou de la sauvegarde.");
+    }
     setSaving(false);
-    alert('Modifications sauvegardées avec succès !');
   };
 
   const handleTranslate = async () => {

@@ -29,15 +29,35 @@ export default function AdminEventsPage() {
   };
 
   const handleAdd = async () => {
-    await addEvent(newEvent);
-    setShowAdd(false);
-    fetchEvents();
-    // Reset
-    setNewEvent({
-      date: '', isUpcoming: true,
-      title_fr: '', title_en: '', title_de: '', title_es: '',
-      desc_fr: '', desc_en: '', desc_de: '', desc_es: ''
-    });
+    try {
+      const { translateText } = await import('@/app/actions/translate');
+      
+      const title_en = await translateText(newEvent.title_fr, 'en');
+      const title_de = await translateText(newEvent.title_fr, 'de');
+      const title_es = await translateText(newEvent.title_fr, 'es');
+      
+      const desc_en = await translateText(newEvent.desc_fr, 'en');
+      const desc_de = await translateText(newEvent.desc_fr, 'de');
+      const desc_es = await translateText(newEvent.desc_fr, 'es');
+
+      const eventData = {
+        ...newEvent,
+        title_en, title_de, title_es,
+        desc_en, desc_de, desc_es
+      };
+
+      await addEvent(eventData);
+      setShowAdd(false);
+      fetchEvents();
+      setNewEvent({
+        date: '', isUpcoming: true,
+        title_fr: '', title_en: '', title_de: '', title_es: '',
+        desc_fr: '', desc_en: '', desc_de: '', desc_es: ''
+      });
+      alert("Événement ajouté et traduit automatiquement !");
+    } catch (error) {
+      alert("Erreur lors de la traduction ou de l'ajout.");
+    }
   };
 
   const handleDelete = async (id: string) => {

@@ -37,9 +37,22 @@ export default function AdminBiographyPage() {
 
   const handleSaveText = async () => {
     setSavingText(true);
-    await updateBiographyText(data);
+    try {
+      // Auto-translate to all languages before saving
+      const { translateText } = await import('@/app/actions/translate');
+      const en = await translateText(data.content_fr, 'en');
+      const de = await translateText(data.content_fr, 'de');
+      const es = await translateText(data.content_fr, 'es');
+      
+      const newData = { ...data, content_en: en, content_de: de, content_es: es };
+      setData(newData);
+      await updateBiographyText(newData);
+      alert('Texte traduit automatiquement dans toutes les langues et sauvegardé avec succès !');
+    } catch (error) {
+      console.error(error);
+      alert("Erreur lors de la traduction ou de la sauvegarde.");
+    }
     setSavingText(false);
-    alert('Texte sauvegardé avec succès !');
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, type: 'cv' | 'bio') => {
