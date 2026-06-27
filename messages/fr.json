@@ -27,6 +27,7 @@
   "Events": {
     "title": "Agenda",
     "upcoming": "À venir",
+    "empty": "Aucun événement programmé pour le moment.",
     "event1_title": "Concert - Brass Band Æolus",
     "event1_date": "Mai 2025 - Paris",
     "event1_desc": "Direction musicale. Au programme : répertoire original et créations contemporaines.",
@@ -36,6 +37,7 @@
   },
   "Media": {
     "title": "Médias",
+    "empty": "Aucune vidéo disponible pour le moment.",
     "placeholder_video": "Espace Vidéo",
     "placeholder_photo": "Espace Photo",
     "placeholder_audio": "Espace Audio"

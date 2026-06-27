@@ -26,19 +26,21 @@
   },
   "Events": {
     "title": "Agenda",
-    "upcoming": "Demnächst",
+    "upcoming": "Bevorstehend",
+    "empty": "Zurzeit sind keine Veranstaltungen geplant.",
     "event1_title": "Konzert - Brass Band Æolus",
     "event1_date": "Mai 2025 - Paris",
-    "event1_desc": "Musikalische Leitung. Auf dem Programm: Originalrepertoire und zeitgenössische Kreationen.",
-    "event2_title": "Eurochestries Festival Brasilien",
+    "event1_desc": "Musikalische Leitung. Programm: Originalrepertoire und zeitgenössische Werke.",
+    "event2_title": "Festival Eurochestries Brasilien",
     "event2_date": "Juli 2025 - Sobral, Brasilien",
     "event2_desc": "Gastdirigent. Leitung eines internationalen Konzerts und Meisterkurse."
   },
   "Media": {
     "title": "Medien",
-    "placeholder_video": "Video-Bereich",
-    "placeholder_photo": "Foto-Bereich",
-    "placeholder_audio": "Audio-Bereich"
+    "empty": "Zurzeit ist kein Video verfügbar.",
+    "placeholder_video": "Videobereich",
+    "placeholder_photo": "Fotobereich",
+    "placeholder_audio": "Audiobereich"
   },
   "Contact": {
     "title": "Kontakt",

@@ -30,7 +30,7 @@ export default function EventsList({ events, locale }: { events: any[], locale: 
         animate={{ opacity: 1 }}
         className="text-center text-gray-500 font-light italic"
       >
-        Aucun événement programmé pour le moment.
+        {t('empty')}
       </motion.div>
     );
   }

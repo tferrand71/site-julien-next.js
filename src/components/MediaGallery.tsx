@@ -88,10 +88,11 @@ export default function MediaGallery({ videos }: { videos: VideoItem[] }) {
       ))}
       
       {videos.length === 0 && (
-        <div className="col-span-1 md:col-span-2 text-center text-gray-400 font-light py-10">
-          Aucune vidéo disponible pour le moment.
-        </div>
-      )}
+        <div className="flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 text-center">
+          <p className="text-gray-400 font-light italic mb-4">
+            {tMedia('empty')}
+          </p>
+        </div>)}
     </motion.div>
   );
 }
