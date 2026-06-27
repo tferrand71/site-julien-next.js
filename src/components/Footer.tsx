@@ -17,9 +17,14 @@ export default function Footer() {
       {/* Glowing Top Line */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
       
-      {/* Musical Watermark Background */}
+      {/* Musical Watermark Background (Right - Treble Clef) */}
       <div className="absolute -bottom-24 -right-10 md:-right-20 pointer-events-none opacity-[0.02] select-none">
         <span className="font-serif text-[400px] md:text-[600px] text-white">&#x1D11E;</span>
+      </div>
+      
+      {/* Musical Watermark Background (Left - Bass Clef) */}
+      <div className="absolute top-0 -left-10 md:-left-20 pointer-events-none opacity-[0.02] select-none">
+        <span className="font-serif text-[300px] md:text-[500px] text-white">&#x1D122;</span>
       </div>
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
