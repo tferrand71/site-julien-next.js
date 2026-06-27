@@ -8,6 +8,7 @@ export default function AdminHeroPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
+  const [translating, setTranslating] = useState(false);
 
   useEffect(() => {
     getHeroContent().then((res) => {
@@ -23,6 +24,24 @@ export default function AdminHeroPage() {
     alert('Modifications sauvegardées avec succès !');
   };
 
+  const handleTranslate = async () => {
+    if (!data.title_fr || !data.subtitle_fr) return alert('Le texte en français est vide.');
+    setTranslating(true);
+    try {
+      const { translateText } = await import('@/app/actions/translate');
+      const translatedTitle = await translateText(data.title_fr, activeTab);
+      const translatedSubtitle = await translateText(data.subtitle_fr, activeTab);
+      setData({ 
+        ...data, 
+        [`title_${activeTab}`]: translatedTitle,
+        [`subtitle_${activeTab}`]: translatedSubtitle
+      });
+    } catch (error) {
+      alert("Erreur de traduction. Vérifiez la clé API.");
+    }
+    setTranslating(false);
+  };
+
   if (loading) return <div className="text-gold">Chargement...</div>;
 
   return (
@@ -31,18 +50,29 @@ export default function AdminHeroPage() {
       <p className="text-gray-400 font-light mb-10">Modifiez le titre et le sous-titre de la page principale pour chaque langue.</p>
 
       {/* Tabs */}
-      <div className="flex gap-4 mb-8 border-b border-white/10 pb-4">
-        {['fr', 'en', 'de', 'es'].map((lang) => (
+      <div className="flex justify-between items-end mb-8 border-b border-white/10 pb-4">
+        <div className="flex gap-4">
+          {['fr', 'en', 'de', 'es'].map((lang) => (
+            <button
+              key={lang}
+              onClick={() => setActiveTab(lang)}
+              className={`px-4 py-2 font-light tracking-widest uppercase text-sm transition-colors ${
+                activeTab === lang ? 'text-gold border-b-2 border-gold' : 'text-gray-500 hover:text-white'
+              }`}
+            >
+              {lang === 'fr' ? 'Français' : lang === 'en' ? 'Anglais' : lang === 'de' ? 'Allemand' : 'Espagnol'}
+            </button>
+          ))}
+        </div>
+        {activeTab !== 'fr' && (
           <button
-            key={lang}
-            onClick={() => setActiveTab(lang)}
-            className={`px-4 py-2 font-light tracking-widest uppercase text-sm transition-colors ${
-              activeTab === lang ? 'text-gold border-b-2 border-gold' : 'text-gray-500 hover:text-white'
-            }`}
+            onClick={handleTranslate}
+            disabled={translating}
+            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
           >
-            {lang === 'fr' ? 'Français' : lang === 'en' ? 'Anglais' : lang === 'de' ? 'Allemand' : 'Espagnol'}
+            {translating ? 'Traduction...' : 'Traduire depuis FR'}
           </button>
-        ))}
+        )}
       </div>
 
       <div className="space-y-8 bg-[#111] border border-white/5 p-8">

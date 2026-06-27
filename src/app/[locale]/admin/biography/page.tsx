@@ -10,6 +10,7 @@ export default function AdminBiographyPage() {
   const [uploadingCv, setUploadingCv] = useState(false);
   const [uploadingBio, setUploadingBio] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
+  const [translating, setTranslating] = useState(false);
 
   useEffect(() => {
     fetchBio();
@@ -19,6 +20,19 @@ export default function AdminBiographyPage() {
     const res = await getBiography();
     setData(res);
     setLoading(false);
+  };
+
+  const handleTranslate = async () => {
+    if (!data.content_fr) return alert('Le texte en français est vide.');
+    setTranslating(true);
+    try {
+      const { translateText } = await import('@/app/actions/translate');
+      const translated = await translateText(data.content_fr, activeTab);
+      setData({ ...data, [`content_${activeTab}`]: translated });
+    } catch (error) {
+      alert("Erreur de traduction. Vérifiez la clé API.");
+    }
+    setTranslating(false);
   };
 
   const handleSaveText = async () => {
@@ -79,8 +93,21 @@ export default function AdminBiographyPage() {
           </div>
 
           <div className="space-y-4 mb-6">
-            <label className="block text-gold text-sm font-light tracking-widest uppercase">Texte de la Biographie</label>
-            <p className="text-xs text-gray-500 italic mb-2">Sautez des lignes pour séparer les paragraphes.</p>
+            <div className="flex justify-between items-end mb-2">
+              <div>
+                <label className="block text-gold text-sm font-light tracking-widest uppercase">Texte de la Biographie</label>
+                <p className="text-xs text-gray-500 italic">Sautez des lignes pour séparer les paragraphes.</p>
+              </div>
+              {activeTab !== 'fr' && (
+                <button
+                  onClick={handleTranslate}
+                  disabled={translating}
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
+                >
+                  {translating ? 'Traduction...' : 'Traduire depuis FR'}
+                </button>
+              )}
+            </div>
             <textarea 
               value={data[`content_${activeTab}`]} 
               onChange={(e) => setData({ ...data, [`content_${activeTab}`]: e.target.value })}

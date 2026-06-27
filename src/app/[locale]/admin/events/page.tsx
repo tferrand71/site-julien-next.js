@@ -8,6 +8,7 @@ export default function AdminEventsPage() {
   const [loading, setLoading] = useState(true);
   const [showAdd, setShowAdd] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
+  const [translating, setTranslating] = useState(false);
 
   const [newEvent, setNewEvent] = useState({
     date: '',
@@ -46,6 +47,24 @@ export default function AdminEventsPage() {
     }
   };
 
+  const handleTranslate = async () => {
+    if (!newEvent.title_fr || !newEvent.desc_fr) return alert('Le titre ou la description en français sont vides.');
+    setTranslating(true);
+    try {
+      const { translateText } = await import('@/app/actions/translate');
+      const translatedTitle = await translateText(newEvent.title_fr, activeTab);
+      const translatedDesc = await translateText(newEvent.desc_fr, activeTab);
+      setNewEvent({ 
+        ...newEvent, 
+        [`title_${activeTab}`]: translatedTitle,
+        [`desc_${activeTab}`]: translatedDesc
+      });
+    } catch (error) {
+      alert("Erreur de traduction. Vérifiez la clé API.");
+    }
+    setTranslating(false);
+  };
+
   if (loading) return <div className="text-gold">Chargement...</div>;
 
   return (
@@ -81,18 +100,29 @@ export default function AdminEventsPage() {
           </div>
 
           {/* Tabs for translation */}
-          <div className="flex gap-4 mb-6 border-b border-white/10 pb-4">
-            {['fr', 'en', 'de', 'es'].map((lang) => (
+          <div className="flex justify-between items-end mb-6 border-b border-white/10 pb-4">
+            <div className="flex gap-4">
+              {['fr', 'en', 'de', 'es'].map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setActiveTab(lang)}
+                  className={`px-4 py-2 font-light tracking-widest uppercase text-sm transition-colors ${
+                    activeTab === lang ? 'text-gold border-b-2 border-gold' : 'text-gray-500 hover:text-white'
+                  }`}
+                >
+                  {lang === 'fr' ? 'Français' : lang === 'en' ? 'Anglais' : lang === 'de' ? 'Allemand' : 'Espagnol'}
+                </button>
+              ))}
+            </div>
+            {activeTab !== 'fr' && (
               <button
-                key={lang}
-                onClick={() => setActiveTab(lang)}
-                className={`px-4 py-2 font-light tracking-widest uppercase text-sm transition-colors ${
-                  activeTab === lang ? 'text-gold border-b-2 border-gold' : 'text-gray-500 hover:text-white'
-                }`}
+                onClick={handleTranslate}
+                disabled={translating}
+                className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
               >
-                {lang === 'fr' ? 'Français' : lang === 'en' ? 'Anglais' : lang === 'de' ? 'Allemand' : 'Espagnol'}
+                {translating ? 'Traduction...' : 'Traduire depuis FR'}
               </button>
-            ))}
+            )}
           </div>
 
           <div className="space-y-6">

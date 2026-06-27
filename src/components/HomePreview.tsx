@@ -4,9 +4,13 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
 
-export default function HomePreview() {
+export default function HomePreview({ nextEvent, locale }: { nextEvent?: any, locale?: string }) {
   const tBio = useTranslations('Biography');
   const tEvents = useTranslations('Events');
+
+  const eventTitle = nextEvent && locale ? nextEvent[`title_${locale}`] : tEvents('event1_title');
+  const eventDate = nextEvent ? nextEvent.date : tEvents('event1_date');
+  const eventDesc = nextEvent && locale ? nextEvent[`desc_${locale}`] : tEvents('event1_desc');
 
   return (
     <section className="py-24 relative z-10 container mx-auto px-4 max-w-6xl">
@@ -57,9 +61,9 @@ export default function HomePreview() {
             <div className="text-gold tracking-widest uppercase text-xs font-semibold mb-4 relative z-10">
               {tEvents('upcoming')}
             </div>
-            <h3 className="font-serif text-2xl text-white mb-2 group-hover:text-gold transition-colors relative z-10">{tEvents('event1_title')}</h3>
-            <p className="text-gold-light font-light mb-4 relative z-10">{tEvents('event1_date')}</p>
-            <p className="text-gray-400 font-light line-clamp-2 relative z-10">{tEvents('event1_desc')}</p>
+            <h3 className="font-serif text-2xl text-white mb-2 group-hover:text-gold transition-colors relative z-10">{eventTitle}</h3>
+            <p className="text-gold-light font-light mb-4 relative z-10">{eventDate}</p>
+            <p className="text-gray-400 font-light line-clamp-2 relative z-10">{eventDesc}</p>
           </div>
           
           <div className="pt-4 flex justify-center md:justify-start">
