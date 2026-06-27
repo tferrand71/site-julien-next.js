@@ -9,6 +9,7 @@ export default function AdminEventsPage() {
   const [showAdd, setShowAdd] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
   const [translating, setTranslating] = useState(false);
+  const [autoTranslate, setAutoTranslate] = useState(true);
 
   const [newEvent, setNewEvent] = useState({
     date: '',
@@ -30,23 +31,30 @@ export default function AdminEventsPage() {
 
   const handleAdd = async () => {
     try {
-      const { translateText } = await import('@/app/actions/translate');
-      
-      const title_en = await translateText(newEvent.title_fr, 'en');
-      const title_de = await translateText(newEvent.title_fr, 'de');
-      const title_es = await translateText(newEvent.title_fr, 'es');
-      
-      const desc_en = await translateText(newEvent.desc_fr, 'en');
-      const desc_de = await translateText(newEvent.desc_fr, 'de');
-      const desc_es = await translateText(newEvent.desc_fr, 'es');
+      if (autoTranslate) {
+        const { translateText } = await import('@/app/actions/translate');
+        
+        const title_en = await translateText(newEvent.title_fr, 'en');
+        const title_de = await translateText(newEvent.title_fr, 'de');
+        const title_es = await translateText(newEvent.title_fr, 'es');
+        
+        const desc_en = await translateText(newEvent.desc_fr, 'en');
+        const desc_de = await translateText(newEvent.desc_fr, 'de');
+        const desc_es = await translateText(newEvent.desc_fr, 'es');
 
-      const eventData = {
-        ...newEvent,
-        title_en, title_de, title_es,
-        desc_en, desc_de, desc_es
-      };
+        const eventData = {
+          ...newEvent,
+          title_en, title_de, title_es,
+          desc_en, desc_de, desc_es
+        };
 
-      await addEvent(eventData);
+        await addEvent(eventData);
+        alert("Événement ajouté et traduit automatiquement !");
+      } else {
+        await addEvent(newEvent);
+        alert("Événement ajouté sans modifier vos traductions manuelles !");
+      }
+
       setShowAdd(false);
       fetchEvents();
       setNewEvent({
@@ -54,7 +62,6 @@ export default function AdminEventsPage() {
         title_fr: '', title_en: '', title_de: '', title_es: '',
         desc_fr: '', desc_en: '', desc_de: '', desc_es: ''
       });
-      alert("Événement ajouté et traduit automatiquement !");
     } catch (error) {
       alert("Erreur lors de la traduction ou de l'ajout.");
     }
@@ -152,13 +159,39 @@ export default function AdminEventsPage() {
             </div>
             <div>
               <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Description</label>
-              <textarea value={(newEvent as any)[`desc_${activeTab}`]} onChange={e => setNewEvent({...newEvent, [`desc_${activeTab}`]: e.target.value})} className="w-full h-32 bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:border-gold outline-none" />
+              <textarea 
+                value={(newEvent as any)[`desc_${activeTab}`]} 
+                onChange={(e) => setNewEvent({ ...newEvent, [`desc_${activeTab}`]: e.target.value })}
+                className="w-full h-32 bg-[#1a1a1a] border border-white/10 text-gray-300 px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light"
+              />
             </div>
           </div>
 
-          <button onClick={handleAdd} className="w-full mt-8 bg-gold text-black font-semibold tracking-widest uppercase py-3">
-            Sauvegarder l'événement
-          </button>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
+              <input 
+                type="checkbox" 
+                checked={autoTranslate} 
+                onChange={(e) => setAutoTranslate(e.target.checked)}
+                className="accent-gold w-4 h-4"
+              />
+              Générer et écraser les autres langues avec la traduction
+            </label>
+            <div className="flex gap-4 w-full sm:w-auto">
+              <button
+                onClick={() => setShowAdd(false)}
+                className="flex-1 sm:flex-none border border-white/20 hover:bg-white/5 text-white px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={handleAdd}
+                className="flex-1 sm:flex-none bg-gold hover:bg-gold-light text-black px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors"
+              >
+                Ajouter cet événement
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

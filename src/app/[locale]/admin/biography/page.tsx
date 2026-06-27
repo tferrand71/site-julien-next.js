@@ -11,6 +11,7 @@ export default function AdminBiographyPage() {
   const [uploadingBio, setUploadingBio] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
   const [translating, setTranslating] = useState(false);
+  const [autoTranslate, setAutoTranslate] = useState(true);
 
   useEffect(() => {
     fetchBio();
@@ -38,16 +39,21 @@ export default function AdminBiographyPage() {
   const handleSaveText = async () => {
     setSavingText(true);
     try {
-      // Auto-translate to all languages before saving
-      const { translateText } = await import('@/app/actions/translate');
-      const en = await translateText(data.content_fr, 'en');
-      const de = await translateText(data.content_fr, 'de');
-      const es = await translateText(data.content_fr, 'es');
-      
-      const newData = { ...data, content_en: en, content_de: de, content_es: es };
-      setData(newData);
-      await updateBiographyText(newData);
-      alert('Texte traduit automatiquement dans toutes les langues et sauvegardé avec succès !');
+      if (autoTranslate) {
+        // Auto-translate to all languages before saving
+        const { translateText } = await import('@/app/actions/translate');
+        const en = await translateText(data.content_fr, 'en');
+        const de = await translateText(data.content_fr, 'de');
+        const es = await translateText(data.content_fr, 'es');
+        
+        const newData = { ...data, content_en: en, content_de: de, content_es: es };
+        setData(newData);
+        await updateBiographyText(newData);
+        alert('Texte traduit automatiquement dans toutes les langues et sauvegardé avec succès !');
+      } else {
+        await updateBiographyText(data);
+        alert('Texte sauvegardé avec succès sans écraser vos traductions manuelles !');
+      }
     } catch (error) {
       console.error(error);
       alert("Erreur lors de la traduction ou de la sauvegarde.");
@@ -128,13 +134,24 @@ export default function AdminBiographyPage() {
             />
           </div>
 
-          <button
-            onClick={handleSaveText}
-            disabled={savingText}
-            className="w-full bg-gold hover:bg-gold-light text-black font-semibold tracking-widest uppercase py-3 transition-colors disabled:opacity-50"
-          >
-            {savingText ? 'Sauvegarde...' : 'Enregistrer le texte'}
-          </button>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
+              <input 
+                type="checkbox" 
+                checked={autoTranslate} 
+                onChange={(e) => setAutoTranslate(e.target.checked)}
+                className="accent-gold w-4 h-4"
+              />
+              Générer et écraser les autres langues avec la traduction
+            </label>
+            <button
+              onClick={handleSaveText}
+              disabled={savingText}
+              className="w-full sm:w-auto bg-gold hover:bg-gold-light text-black px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
+            >
+              {savingText ? 'Sauvegarde...' : 'Sauvegarder le texte'}
+            </button>
+          </div>
         </div>
 
         {/* Fichiers Section */}

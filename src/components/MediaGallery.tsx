@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export type VideoItem = {
   id: string;
@@ -53,6 +54,8 @@ function VideoPlayer({ video }: { video: VideoItem }) {
 }
 
 export default function MediaGallery({ videos }: { videos: VideoItem[] }) {
+  const tMedia = useTranslations('Media');
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

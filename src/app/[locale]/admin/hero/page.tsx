@@ -9,6 +9,7 @@ export default function AdminHeroPage() {
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState('fr');
   const [translating, setTranslating] = useState(false);
+  const [autoTranslate, setAutoTranslate] = useState(true);
 
   useEffect(() => {
     getHeroContent().then((res) => {
@@ -20,27 +21,32 @@ export default function AdminHeroPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const { translateText } = await import('@/app/actions/translate');
-      
-      // Auto-translate title
-      const title_en = await translateText(data.title_fr, 'en');
-      const title_de = await translateText(data.title_fr, 'de');
-      const title_es = await translateText(data.title_fr, 'es');
-      
-      // Auto-translate subtitle
-      const subtitle_en = await translateText(data.subtitle_fr, 'en');
-      const subtitle_de = await translateText(data.subtitle_fr, 'de');
-      const subtitle_es = await translateText(data.subtitle_fr, 'es');
-      
-      const newData = { 
-        ...data, 
-        title_en, title_de, title_es,
-        subtitle_en, subtitle_de, subtitle_es
-      };
-      
-      setData(newData);
-      await updateHeroContent(newData);
-      alert('Textes traduits automatiquement et sauvegardés avec succès !');
+      if (autoTranslate) {
+        const { translateText } = await import('@/app/actions/translate');
+        
+        // Auto-translate title
+        const title_en = await translateText(data.title_fr, 'en');
+        const title_de = await translateText(data.title_fr, 'de');
+        const title_es = await translateText(data.title_fr, 'es');
+        
+        // Auto-translate subtitle
+        const subtitle_en = await translateText(data.subtitle_fr, 'en');
+        const subtitle_de = await translateText(data.subtitle_fr, 'de');
+        const subtitle_es = await translateText(data.subtitle_fr, 'es');
+        
+        const newData = { 
+          ...data, 
+          title_en, title_de, title_es,
+          subtitle_en, subtitle_de, subtitle_es
+        };
+        
+        setData(newData);
+        await updateHeroContent(newData);
+        alert('Textes traduits automatiquement et sauvegardés avec succès !');
+      } else {
+        await updateHeroContent(data);
+        alert('Modifications sauvegardées avec succès sans traduction automatique !');
+      }
     } catch (error) {
       alert("Erreur lors de la traduction ou de la sauvegarde.");
     }
@@ -111,21 +117,32 @@ export default function AdminHeroPage() {
 
         <div>
           <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Sous-titre (Description)</label>
-          <input
-            type="text"
-            value={data[`subtitle_${activeTab}`]}
+          <textarea 
+            value={data[`subtitle_${activeTab}`]} 
             onChange={(e) => setData({ ...data, [`subtitle_${activeTab}`]: e.target.value })}
-            className="w-full bg-[#1a1a1a] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors"
+            className="w-full bg-[#1a1a1a] border border-white/10 text-gray-300 px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light"
+            rows={3}
           />
         </div>
 
-        <button
-          onClick={handleSave}
-          disabled={saving}
-          className="w-full mt-6 bg-gold hover:bg-gold-light text-black font-semibold tracking-widest uppercase py-3 transition-colors disabled:opacity-50"
-        >
-          {saving ? 'Sauvegarde en cours...' : 'Enregistrer les modifications'}
-        </button>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+          <label className="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={autoTranslate} 
+              onChange={(e) => setAutoTranslate(e.target.checked)}
+              className="accent-gold w-4 h-4"
+            />
+            Générer et écraser les autres langues avec la traduction
+          </label>
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="w-full sm:w-auto bg-gold hover:bg-gold-light text-black px-8 py-3 text-sm font-semibold tracking-widest uppercase transition-colors disabled:opacity-50"
+          >
+            {saving ? 'Sauvegarde...' : 'Sauvegarder les modifications'}
+          </button>
+        </div>
       </div>
     </div>
   );
