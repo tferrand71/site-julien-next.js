@@ -2,6 +2,8 @@ import { getEvents } from '@/app/actions/events';
 import { getTranslations } from 'next-intl/server';
 import EventsList from './EventsList';
 
+export const dynamic = 'force-dynamic';
+
 export default async function EventsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('Events');

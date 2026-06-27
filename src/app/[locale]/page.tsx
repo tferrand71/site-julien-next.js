@@ -1,6 +1,9 @@
 import Hero from '@/components/Hero';
 import HomePreview from '@/components/HomePreview';
 import { getHeroContent } from '@/app/actions/hero';
+import { getTranslations } from 'next-intl/server';
+
+export const dynamic = 'force-dynamic';
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
