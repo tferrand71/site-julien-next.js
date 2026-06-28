@@ -36,7 +36,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed w-full z-50 transition-all duration-500 flex justify-center ${scrolled ? 'top-6' : 'top-0'}`}
     >
-      <div className={`transition-all duration-500 w-full ${scrolled ? 'max-w-5xl px-8 py-3 bg-background/60 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full' : 'max-w-7xl px-8 py-6 bg-transparent'}`}>
+      <div className={`transition-all duration-500 w-full ${scrolled ? 'max-w-7xl px-6 lg:px-8 py-3 bg-background/60 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 rounded-full' : 'max-w-7xl px-6 lg:px-8 py-6 bg-transparent'}`}>
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
             <div className={`relative rounded-full overflow-hidden border border-gold/30 group-hover:border-gold transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-12 h-12'}`}>
@@ -47,7 +47,7 @@ export default function Navbar() {
             </span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             {['biography', 'events', 'media', 'repertoire', 'projects', 'seasons', 'contact'].map((route) => (
               <Link key={route} href={`/${route}`} className="relative group text-sm font-medium uppercase tracking-widest text-gray-300 hover:text-white transition-colors duration-300">
                 {t(route as any)}
