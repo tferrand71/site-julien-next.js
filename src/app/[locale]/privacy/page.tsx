@@ -51,7 +51,14 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl text-gold mb-4 tracking-widest">4. Vos droits (RGPD)</h2>
+            <h2 className="font-serif text-2xl text-gold mb-4 tracking-widest">4. Analyse d'audience et de performance</h2>
+            <p>
+              Ce site utilise les outils <strong>Vercel Web Analytics</strong> et <strong>Vercel Speed Insights</strong> pour mesurer de manière anonyme l'audience et les performances techniques des pages. Ces outils sont conçus pour respecter la vie privée (privacy-friendly), n'utilisent aucun cookie de pistage, et ne collectent aucune donnée personnelle identifiable. Ils respectent par défaut les exigences du RGPD et de la directive ePrivacy, et ne nécessitent par conséquent pas de recueil de consentement (bandeau cookies).
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-serif text-2xl text-gold mb-4 tracking-widest">5. Vos droits (RGPD)</h2>
             <p>
               Conformément à la réglementation européenne (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants concernant vos données personnelles :
             </p>
@@ -66,7 +73,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl text-gold mb-4 tracking-widest">5. Sécurité des données</h2>
+            <h2 className="font-serif text-2xl text-gold mb-4 tracking-widest">6. Sécurité des données</h2>
             <p>
               Nous mettons en œuvre toutes les mesures de sécurité techniques nécessaires pour protéger vos échanges (le site est sécurisé par un protocole HTTPS) et empêcher tout accès non autorisé à vos informations de contact.
             </p>
