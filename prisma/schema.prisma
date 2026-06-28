@@ -57,3 +57,43 @@ model VideoConfig {
   isHidden  Boolean @default(false)
   order     Int     @default(0)
 }
+
+model Repertoire {
+  id        String   @id @default(uuid())
+  category  String
+  composer  String
+  piece     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  status    String   @default("CURRENT")
+  title_fr  String
+  title_en  String
+  title_de  String
+  title_es  String
+  desc_fr   String
+  desc_en   String
+  desc_de   String
+  desc_es   String
+  imageData String?  // Stores base64 string
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PastSeason {
+  id        String   @id @default(uuid())
+  year      String
+  title_fr  String
+  title_en  String
+  title_de  String
+  title_es  String
+  desc_fr   String
+  desc_en   String
+  desc_de   String
+  desc_es   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

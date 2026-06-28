@@ -47,8 +47,8 @@ export default function Navbar() {
             </span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-10">
-            {['biography', 'events', 'media', 'contact'].map((route) => (
+          <div className="hidden md:flex items-center space-x-8">
+            {['biography', 'events', 'media', 'repertoire', 'projects', 'seasons', 'contact'].map((route) => (
               <Link key={route} href={`/${route}`} className="relative group text-sm font-medium uppercase tracking-widest text-gray-300 hover:text-white transition-colors duration-300">
                 {t(route as any)}
                 {pathname.includes(`/${route}`) && (
@@ -108,7 +108,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/10 px-8 py-8 flex flex-col space-y-6"
           >
-            {['biography', 'events', 'media', 'contact'].map((route) => (
+            {['biography', 'events', 'media', 'repertoire', 'projects', 'seasons', 'contact'].map((route) => (
               <Link key={route} href={`/${route}`} onClick={() => setIsOpen(false)} className={`text-lg uppercase tracking-widest ${pathname.includes(`/${route}`) ? 'text-gold' : 'text-gray-300 hover:text-white'}`}>
                 {t(route as any)}
               </Link>
