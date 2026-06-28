@@ -50,5 +50,89 @@
     "description": "Für Anfragen, Projektvorschläge oder Meisterkurse kontaktieren Sie mich gerne direkt per E-Mail oder Telefon.",
     "email": "julienjacquemartofficiel@gmail.com",
     "phone": "+33 6 XX XX XX XX"
+  },
+  "Legal": {
+    "sections": [
+      {
+        "title": "1. Betreiber der Website",
+        "content": "Diese Website ist das alleinige Eigentum von <strong>Julien Jacquemart</strong>, Dirigent.<br />Kontakt-E-Mail: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>"
+      },
+      {
+        "title": "2. Gründung und Entwicklung",
+        "content": "Diese Website wurde von <strong>Tobias Ferrand</strong> konzipiert und entwickelt.<br />Website: <a href=\"https://tobias-ferrand.ovh\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">tobias-ferrand.ovh</a>"
+      },
+      {
+        "title": "3. Unterkunft",
+        "content": "Das Hosting dieser Website wird von der Firma <strong>Vercel Inc.</strong><br />bereitgestellt. Adresse: 440 N Barranca Ave #4133, Covina, CA 91723, USA<br />Website: <a href=\"https://vercel.com\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">https://vercel.com</a>"
+      },
+      {
+        "title": "4. Geistiges Eigentum und Inhalte Dritter",
+        "content": "<p className=\"mb-4\">Der gesamte Originalinhalt dieser Website (Texte, Bilder, Logo) ist Eigentum von Julien Jacquemart oder seinen Partnern und urheberrechtlich geschützt. Jede Vervielfältigung oder Verbreitung ist ohne vorherige Zustimmung untersagt.</p><p><strong>Videos und Musikwerke:</strong> Diese Website kann Videos enthalten, die auf Plattformen von Drittanbietern (wie YouTube) gehostet werden. Diese Plattformen sind für die Verwaltung der Urheberrechte (über Systeme wie Content ID) an den wiedergegebenen Musikwerken verantwortlich. Julien Jacquemart erhebt keinerlei Eigentumsansprüche auf die nicht urheberrechtsfreien Musikkompositionen, die in diesen Videos erscheinen. Wenn Sie Rechteinhaber eines Werks sind und wünschen, dass dessen Einbindung von dieser Website entfernt wird, wenden Sie sich bitte direkt an uns.</p>"
+      },
+      {
+        "title": "5. Personenbezogene Daten &amp; Datenschutz",
+        "content": "<p>Diese Website erhebt keine personenbezogenen Daten ohne Wissen des Nutzers. Es werden keine Cookies zur Werbeverfolgung verwendet. Etwaige Daten, die über Kontaktformulare erfasst werden, sind ausschließlich für Julien Jacquemart bestimmt, um die Anfrage zu beantworten, und werden unter keinen Umständen an Dritte weitergegeben.</p><p className=\"mt-4\">Gemäß dem französischen Datenschutzgesetz („Informatique et Libertés“) haben Sie ein Recht auf Auskunft, Berichtigung und Widerspruch hinsichtlich Ihrer personenbezogenen Daten.</p>"
+      }
+    ],
+    "title": "Rechtliche Hinweise"
+  },
+  "Privacy": {
+    "sections": [
+      {
+        "title": "1. Erhebung personenbezogener Daten",
+        "content": "<p>Die Website <em>julienjacquemart.com</em> ist eine Präsentationsseite. Sie erfordert keine Erstellung eines Benutzerkontos und erfasst keine personenbezogenen Daten ohne Ihr Wissen. Die einzigen Daten, die erfasst werden können, sind diejenigen, die Sie uns freiwillig bei der Kontaktaufnahme per E-Mail mitteilen (Ihre E-Mail-Adresse, Ihr Name und der Inhalt Ihrer Nachricht).</p>"
+      },
+      {
+        "title": "2. Verwendung der Daten",
+        "content": "<p>Die im Rahmen des E-Mail-Verkehrs erhobenen personenbezogenen Daten werden ausschließlich für folgende Zwecke verwendet:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Die Beantwortung Ihrer Anfragen oder die Erbringung von Dienstleistungen.</li><li>Die administrative oder vertragliche Abwicklung im Falle einer Zusammenarbeit.</li></ul><p className=\"mt-4\">Diese Daten werden unter keinen Umständen zu kommerziellen oder Werbezwecken an Dritte verkauft, weitergegeben oder vermietet.</p>"
+      },
+      {
+        "title": "3. Cookies und Tracker",
+        "content": "<p>Diese Website verwendet keine Cookies für gezielte Werbung oder aufdringliche Nachverfolgung. Es können lediglich Cookies in Ihrem Browser gespeichert werden, die für den technischen Betrieb der Website unbedingt erforderlich sind (beispielsweise zur Speicherung Ihrer Spracheinstellungen), und zwar gemäß den Empfehlungen der CNIL. Für diese Cookies ist keine vorherige Einwilligung erforderlich.</p>"
+      },
+      {
+        "title": "4. Analyse der Besucherzahlen und der Leistung",
+        "content": "<p>Diese Website nutzt die Tools <strong>„Vercel Web Analytics“</strong> und <strong>„Vercel Speed Insights“,</strong> um die Besucherzahlen und die technische Leistung der Seiten anonym zu messen. Diese Tools sind datenschutzfreundlich konzipiert, verwenden keine Tracking-Cookies und erheben keine personenbezogenen Daten. Sie erfüllen standardmäßig die Anforderungen der DSGVO und der ePrivacy-Richtlinie und erfordern daher keine Einholung einer Einwilligung (Cookie-Banner).</p>"
+      },
+      {
+        "title": "5. Ihre Rechte (DSGVO)",
+        "content": "<p>Gemäß den europäischen Vorschriften (DSGVO) und dem französischen Datenschutzgesetz haben Sie folgende Rechte in Bezug auf Ihre personenbezogenen Daten:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Recht auf Auskunft und Berichtigung.</li><li>Recht auf Löschung (Recht auf Vergessenwerden).</li><li>Recht auf Widerspruch oder Einschränkung der Verarbeitung.</li></ul><p className=\"mt-4\">Um diese Rechte auszuüben, können Sie uns direkt per E-Mail unter folgender Adresse kontaktieren: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>.</p>"
+      },
+      {
+        "title": "6. Datensicherheit",
+        "content": "<p>Wir ergreifen alle erforderlichen technischen Sicherheitsmaßnahmen, um Ihre Daten zu schützen (die Website ist durch ein HTTPS-Protokoll gesichert) und jeden unbefugten Zugriff auf Ihre Kontaktdaten zu verhindern.</p>"
+      }
+    ],
+    "title": "Datenschutzerklärung"
+  },
+  "Terms": {
+    "sections": [
+      {
+        "title": "1. Gegenstand",
+        "content": "<p>Die vorliegenden Allgemeinen Nutzungsbedingungen (ANB) dienen dazu, die Modalitäten und Bedingungen festzulegen, unter denen der Herausgeber die Website <em>julienjacquemart.com</em> seinen Nutzern zur Verfügung stellt, sowie die Art und Weise, wie die Nutzer auf die Website zugreifen und deren Dienste nutzen.</p><p className=\"mt-4\">Jeder Zugriff auf die Website setzt die Einhaltung der vorliegenden Bedingungen voraus.</p>"
+      },
+      {
+        "title": "2. Zugriff auf die Website",
+        "content": "<p>Der Herausgeber ist bestrebt, den Zugriff auf die Website rund um die Uhr an sieben Tagen in der Woche zu ermöglichen, außer im Falle höherer Gewalt oder eines Ereignisses, das außerhalb der Kontrolle des Herausgebers liegt, und vorbehaltlich etwaiger Ausfälle und Wartungsarbeiten, die für den ordnungsgemäßen Betrieb der Website und der Dienste erforderlich sind.</p><p className=\"mt-4\">Daher kann der Herausgeber keine Garantie für die Verfügbarkeit der Website und/oder der Dienste, die Zuverlässigkeit der Datenübertragung sowie die Leistung in Bezug auf Reaktionszeiten oder Qualität übernehmen.</p>"
+      },
+      {
+        "title": "3. Inhalt und Haftung",
+        "content": "<p>Die auf dieser Website bereitgestellten Informationen dienen lediglich zu Informationszwecken. Der Herausgeber ist bestrebt, diese Informationen aktuell und korrekt zu halten, kann jedoch keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der veröffentlichten Informationen übernehmen.</p><p className=\"mt-4\">Der Nutzer trägt die alleinige und vollständige Verantwortung für die Nutzung der Informationen und Inhalte dieser Website. Der Herausgeber haftet in keinem Fall für Schäden jeglicher Art, die sich aus der Auslegung oder der Nutzung der auf dieser Website verfügbaren Informationen und/oder Dokumente ergeben.</p>"
+      },
+      {
+        "title": "4. Hyperlinks",
+        "content": "<p>Die Website kann Hyperlinks zu anderen Websites im Internet enthalten. Über diese Links verlassen Sie die vorliegende Website.</p><p className=\"mt-4\">Es ist möglich, ohne ausdrückliche Genehmigung des Herausgebers einen Link zur Startseite dieser Website zu setzen. Der Herausgeber kann von einer Website, die einen Link zur Website des Herausgebers einrichten möchte, keine Genehmigung oder vorherige Informationsanfrage verlangen. Der Herausgeber behält sich jedoch das Recht vor, die Entfernung eines Links zu verlangen, den er als nicht mit dem Zweck seiner Website vereinbar erachtet.</p>"
+      },
+      {
+        "title": "5. Änderung der Nutzungsbedingungen",
+        "content": "<p>Der Herausgeber behält sich das Recht vor, die vorliegenden Nutzungsbedingungen jederzeit und ohne vorherige Ankündigung zu ändern, um sie an die Entwicklungen der Website und/oder ihres Betriebs anzupassen.</p>"
+      },
+      {
+        "title": "6. Droit Applicable",
+        "content": "<p>Tant le présent site que les modalités et conditions de son utilisation sont régis par le droit français, quel que soit le lieu d'utilisation. En cas de contestation éventuelle, et après l'échec de toute tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents pour connaître de ce litige.</p>"
+      }
+    ],
+    "title": "C.G.U.",
+    "subtitle": "Allgemeine Nutzungsbedingungen"
   }
 }

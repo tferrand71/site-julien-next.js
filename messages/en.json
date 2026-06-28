@@ -50,5 +50,89 @@
     "description": "For any inquiries, project proposals, or masterclasses, feel free to contact me directly by email or phone.",
     "email": "julienjacquemartofficiel@gmail.com",
     "phone": "+33 6 XX XX XX XX"
+  },
+  "Legal": {
+    "sections": [
+      {
+        "title": "1. Website Publisher",
+        "content": "This website is the exclusive property of <strong>Julien Jacquemart</strong>, Conductor.<br />Contact email: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>"
+      },
+      {
+        "title": "2. Creation and Development",
+        "content": "This website was designed and developed by <strong>Tobias Ferrand</strong>.<br />Website: <a href=\"https://tobias-ferrand.ovh\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">tobias-ferrand.ovh</a>"
+      },
+      {
+        "title": "3. Accommodations",
+        "content": "This website is hosted by <strong>Vercel Inc.</strong><br />Address: 440 N Barranca Ave #4133, Covina, CA 91723, United States<br />Website: <a href=\"https://vercel.com\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">https://vercel.com</a>"
+      },
+      {
+        "title": "4. Intellectual Property &amp; Third-Party Content",
+        "content": "<p className=\"mb-4\">All original content on this site (text, images, logo) is the property of Julien Jacquemart or his partners and is protected by copyright. Any reproduction or distribution is prohibited without prior consent.</p><p><strong>Videos and Musical Works:</strong> This site may include videos hosted on third-party platforms (such as YouTube). These platforms are responsible for managing copyrights (via systems such as Content ID) regarding the musical works performed. Julien Jacquemart claims no ownership rights to any non-royalty-free musical compositions appearing in these videos. If you are the rights holder of a work and wish to have it removed from this site, please contact us directly.</p>"
+      },
+      {
+        "title": "5. Personal Information &amp; Privacy",
+        "content": "<p>This website does not collect any personal data without the user&#x27;s knowledge. No advertising tracking cookies are used. Any data collected via contact forms is intended solely for Julien Jacquemart for the purpose of responding to the request and will under no circumstances be disclosed to third parties.</p><p className=\"mt-4\">In accordance with the French Data Protection Act, you have the right to access, correct, and object to the processing of your personal data.</p>"
+      }
+    ],
+    "title": "Legal Notice"
+  },
+  "Privacy": {
+    "sections": [
+      {
+        "title": "1. Collection of Personal Data",
+        "content": "<p>The <em>julienjacquemart.com</em> website is a showcase site. It does not require you to create a user account and does not collect any personal data without your knowledge. The only data that may be collected is the information you voluntarily provide when contacting us by email (your email address, your name, and the content of your message).</p>"
+      },
+      {
+        "title": "2. Use of Data",
+        "content": "<p>Personal data collected during email correspondence is used exclusively for the following purposes:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Responding to your requests for information or services.</li><li>Administrative or contractual management in the event of a collaboration.</li></ul><p className=\"mt-4\">Under no circumstances will this data be sold, transferred, or rented to third parties for commercial or advertising purposes.</p>"
+      },
+      {
+        "title": "3. Cookies and Trackers",
+        "content": "<p>This site does not use any cookies for targeted advertising or intrusive tracking. Only cookies that are strictly necessary for the technical operation of the site (for example, to save your language preferences) may be stored in your browser, in accordance with the recommendations of the CNIL. These cookies do not require prior consent.</p>"
+      },
+      {
+        "title": "4. Audience and Performance Analysis",
+        "content": "<p>This site uses <strong>Vercel Web Analytics</strong> and <strong>Vercel Speed Insights</strong> to anonymously measure page traffic and technical performance. These tools are designed to be privacy-friendly, do not use any tracking cookies, and do not collect any personally identifiable information. By default, they comply with the requirements of the GDPR and the ePrivacy Directive and therefore do not require consent to be obtained (via a cookie banner).</p>"
+      },
+      {
+        "title": "5. Your Rights (GDPR)",
+        "content": "<p>In accordance with European regulations (GDPR) and the French Data Protection Act, you have the following rights regarding your personal data:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Right of access and rectification.</li><li>Right to erasure (right to be forgotten).</li><li>Right to object to or restrict processing.</li></ul><p className=\"mt-4\">To exercise these rights, you can contact us directly by email at: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>.</p>"
+      },
+      {
+        "title": "6. Data Security",
+        "content": "<p>We implement all necessary technical security measures to protect your communications (the site is secured by HTTPS) and prevent any unauthorized access to your contact information.</p>"
+      }
+    ],
+    "title": "Privacy Policy"
+  },
+  "Terms": {
+    "sections": [
+      {
+        "title": "1. Purpose",
+        "content": "<p>The purpose of these Terms of Use is to define the terms and conditions under which the publisher makes the <em>julienjacquemart.com</em> website available to its users, as well as the manner in which users access the site and use its services.</p><p className=\"mt-4\">Any access to the website is subject to compliance with these terms.</p>"
+      },
+      {
+        "title": "2. Access to the Site",
+        "content": "<p>The publisher strives to provide access to the site 24 hours a day, 7 days a week, except in cases of force majeure or events beyond the publisher’s control, and subject to any outages and maintenance required for the proper functioning of the site and its services.</p><p className=\"mt-4\">Consequently, the publisher cannot guarantee the availability of the website and/or services, the reliability of transmissions, or performance in terms of response time or quality.</p>"
+      },
+      {
+        "title": "3. Content and Liability",
+        "content": "<p>The information provided on this website is for informational purposes only. The publisher makes every effort to keep it up to date and accurate, but cannot guarantee the accuracy, completeness, or timeliness of the information provided.</p><p className=\"mt-4\">The user assumes sole and full responsibility for the use of the information and content on this website. Under no circumstances shall the publisher be held liable for any damages of any kind resulting from the interpretation or use of the information and/or documents available on this website.</p>"
+      },
+      {
+        "title": "4. Hyperlinks",
+        "content": "<p>This site may contain hyperlinks to other websites on the Internet. Clicking on these links will take you away from this site.</p><p className=\"mt-4\">You may create a link to this site’s home page without the publisher’s express permission. The publisher may not require any prior authorization or request for information from a website that wishes to link to the publisher’s site. However, the publisher reserves the right to request the removal of a link that it deems inconsistent with the purpose of its site.</p>"
+      },
+      {
+        "title": "5. Changes to the Terms of Use",
+        "content": "<p>The publisher reserves the right to modify these Terms of Use at any time and without notice in order to adapt them to changes in the website and/or its operation.</p>"
+      },
+      {
+        "title": "6. Governing Law",
+        "content": "<p>Both this website and the terms and conditions governing its use are governed by French law, regardless of the location of use. In the event of any dispute, and after all attempts to reach an amicable resolution have failed, the French courts shall have exclusive jurisdiction to hear such disputes.</p>"
+      }
+    ],
+    "title": "C.G.U.",
+    "subtitle": "Terms and Conditions of Use"
   }
 }
