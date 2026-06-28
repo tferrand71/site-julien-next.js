@@ -47,7 +47,8 @@
   },
   "Contact": {
     "title": "Contact",
-    "description": "Pour toute demande de renseignements, proposition de projet ou masterclass, n'hésitez pas à me contacter directement par e-mail.",
-    "email": "julienjacquemartofficiel@gmail.com"
+    "description": "Pour toute demande de renseignements, proposition de projet ou masterclass, n'hésitez pas à me contacter directement par e-mail ou téléphone.",
+    "email": "julienjacquemartofficiel@gmail.com",
+    "phone": "+33 6 XX XX XX XX"
   }
 }

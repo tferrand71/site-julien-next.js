@@ -47,7 +47,8 @@
   },
   "Contact": {
     "title": "Contact",
-    "description": "For any inquiries, project proposals, or masterclasses, please feel free to contact me directly by e-mail.",
-    "email": "julienjacquemartofficiel@gmail.com"
+    "description": "For any inquiries, project proposals, or masterclasses, feel free to contact me directly by email or phone.",
+    "email": "julienjacquemartofficiel@gmail.com",
+    "phone": "+33 6 XX XX XX XX"
   }
 }

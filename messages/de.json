@@ -47,7 +47,8 @@
   },
   "Contact": {
     "title": "Kontakt",
-    "description": "Für Anfragen, Projektvorschläge oder Meisterkurse kontaktieren Sie mich gerne direkt per E-Mail.",
-    "email": "julienjacquemartofficiel@gmail.com"
+    "description": "Für Anfragen, Projektvorschläge oder Meisterkurse kontaktieren Sie mich gerne direkt per E-Mail oder Telefon.",
+    "email": "julienjacquemartofficiel@gmail.com",
+    "phone": "+33 6 XX XX XX XX"
   }
 }

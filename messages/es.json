@@ -47,7 +47,8 @@
   },
   "Contact": {
     "title": "Contacto",
-    "description": "Para cualquier consulta, propuesta de proyecto o clases magistrales, no dude en contactarme directamente por correo electrónico.",
-    "email": "julienjacquemartofficiel@gmail.com"
+    "description": "Para cualquier consulta, propuesta de proyecto o clases magistrales, no dude en contactarme directamente por correo electrónico o teléfono.",
+    "email": "julienjacquemartofficiel@gmail.com",
+    "phone": "+33 6 XX XX XX XX"
   }
 }
