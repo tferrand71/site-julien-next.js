@@ -54,85 +54,85 @@
   "Legal": {
     "sections": [
       {
-        "title": "1. Éditeur du site",
-        "content": "Le présent site est la propriété exclusive de <strong>Julien Jacquemart</strong>, Chef d'Orchestre.<br />Email de contact : <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>"
+        "title": "1. Editor del sitio web",
+        "content": "Este sitio es propiedad exclusiva de <strong>Julien Jacquemart</strong>, Director de orquesta.<br />Email de contacto: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>"
       },
       {
-        "title": "2. Création et Développement",
-        "content": "Ce site a été conçu et développé par <strong>Tobias Ferrand</strong>.<br />Site : <a href=\"https://tobias-ferrand.ovh\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">tobias-ferrand.ovh</a>"
+        "title": "2. Creación y Desarrollo",
+        "content": "Este sitio web ha sido diseñado y desarrollado por <strong>Tobias Ferrand</strong>.<br />Sitio web: <a href=\"https://tobias-ferrand.ovh\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">tobias-ferrand.ovh</a>"
       },
       {
-        "title": "3. Hébergement",
-        "content": "L'hébergement de ce site est assuré par la société <strong>Vercel Inc.</strong><br />Adresse : 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br />Site web : <a href=\"https://vercel.com\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">https://vercel.com</a>"
+        "title": "3. Alojamiento web",
+        "content": "El alojamiento de este sitio es proporcionado por <strong>Vercel Inc.</strong><br />Dirección: 440 N Barranca Ave #4133, Covina, CA 91723, Estados Unidos<br />Sitio web: <a href=\"https://vercel.com\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-gold-light hover:underline\">https://vercel.com</a>"
       },
       {
-        "title": "4. Propriété Intellectuelle & Contenus Tiers",
-        "content": "<p className=\"mb-4\">L'ensemble du contenu original de ce site (textes, images, logo) est la propriété de Julien Jacquemart ou de ses partenaires et est protégé par le droit d'auteur. Toute reproduction ou distribution est interdite sans accord préalable.</p><p><strong>Vidéos et œuvres musicales :</strong> Ce site peut intégrer des vidéos hébergées sur des plateformes tierces (telles que YouTube). Ces plateformes sont responsables de la gestion des droits d'auteur (via des systèmes comme Content ID) concernant les œuvres musicales interprétées. Julien Jacquemart ne revendique aucun droit de propriété sur les compositions musicales non libres de droit apparaissant dans ces vidéos. Si vous êtes ayant droit d'une œuvre et souhaitez que son intégration soit retirée de ce site, veuillez nous contacter directement.</p>"
+        "title": "4. Propiedad Intelectual y Contenidos de Terceros",
+        "content": "<p className=\"mb-4\">Todo el contenido original de este sitio web (textos, imágenes, logotipo) es propiedad de Julien Jacquemart o de sus socios y está protegido por derechos de autor. Queda prohibida su reproducción o distribución sin autorización previa.</p><p><strong>Vídeos y obras musicales:</strong> Este sitio puede incluir vídeos alojados en plataformas de terceros (como YouTube). Dichas plataformas son responsables de la gestión de los derechos de autor (a través de sistemas como Content ID) sobre las obras musicales interpretadas. Julien Jacquemart no reclama ningún derecho de propiedad sobre las composiciones musicales protegidas por derechos de autor que aparecen en estos vídeos. Si usted es el titular de los derechos de una obra y desea que se elimine su integración en este sitio, póngase en contacto con nosotros directamente.</p>"
       },
       {
-        "title": "5. Données personnelles & Confidentialité",
-        "content": "<p>Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Aucun cookie de pistage publicitaire n'est utilisé. Les données éventuelles recueillies via des formulaires de contact sont destinées uniquement à Julien Jacquemart dans le but de répondre à la demande et ne seront en aucun cas cédées à des tiers.</p><p className=\"mt-4\">Conformément à la loi \"Informatique et Libertés\", vous disposez d'un droit d'accès, de rectification et d'opposition aux données personnelles vous concernant.</p>"
+        "title": "5. Datos Personales y Privacidad",
+        "content": "<p>Este sitio no recopila datos personales sin el conocimiento del usuario. No se utilizan cookies de seguimiento publicitario. Los datos recogidos a través de los formularios de contacto están destinados únicamente a Julien Jacquemart con el fin de responder a su solicitud y en ningún caso se cederán a terceros.</p><p className=\"mt-4\">De conformidad con la normativa de protección de datos, usted dispone de un derecho de acceso, rectificación y oposición a sus datos personales.</p>"
       }
     ],
-    "title": "Mentions Légales"
+    "title": "Aviso Legal"
   },
   "Privacy": {
     "sections": [
       {
-        "title": "1. Collecte des données personnelles",
-        "content": "<p>Le site <em>julienjacquemart.com</em> est un site vitrine. Il n'exige pas de création de compte utilisateur et ne collecte aucune donnée personnelle à votre insu. Les seules données pouvant être recueillies sont celles que vous nous communiquez volontairement lors de la prise de contact par e-mail (votre adresse e-mail, votre nom et le contenu de votre message).</p>"
+        "title": "1. Recopilación de datos personales",
+        "content": "<p>El sitio web <em>julienjacquemart.com</em> es un sitio informativo. No requiere la creación de una cuenta de usuario y no recopila datos personales sin su conocimiento. Los únicos datos que pueden ser recogidos son los que usted nos proporciona voluntariamente al contactarnos por correo electrónico (su dirección de correo electrónico, su nombre y el contenido de su mensaje).</p>"
       },
       {
-        "title": "2. Utilisation des données",
-        "content": "<p>Les données personnelles recueillies lors des échanges par e-mail sont exclusivement utilisées dans le cadre de :</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>La réponse à vos demandes de renseignements ou de prestations.</li><li>La gestion administrative ou contractuelle en cas de collaboration.</li></ul><p className=\"mt-4\">En aucun cas ces données ne seront vendues, cédées ou louées à des tiers à des fins commerciales ou publicitaires.</p>"
+        "title": "2. Uso de los datos",
+        "content": "<p>Los datos personales recogidos durante las comunicaciones por correo electrónico se utilizan exclusivamente para:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Responder a sus solicitudes de información o de servicios.</li><li>La gestión administrativa o contractual en caso de colaboración.</li></ul><p className=\"mt-4\">En ningún caso estos datos serán vendidos, cedidos o alquilados a terceros con fines comerciales o publicitarios.</p>"
       },
       {
-        "title": "3. Cookies et traceurs",
-        "content": "<p>Ce site n'utilise aucun cookie de ciblage publicitaire ou de pistage intrusif. Seuls des cookies strictement nécessaires au fonctionnement technique du site (par exemple pour conserver vos préférences de langue) peuvent être déposés sur votre navigateur, conformément aux recommandations de la CNIL. Ces cookies ne nécessitent pas de consentement préalable.</p>"
+        "title": "3. Cookies y rastreadores",
+        "content": "<p>Este sitio no utiliza cookies de segmentación publicitaria ni rastreadores intrusivos. Solo se pueden almacenar en su navegador cookies estrictamente necesarias para el funcionamiento técnico del sitio (por ejemplo, para guardar sus preferencias de idioma), de acuerdo con la normativa vigente. Estas cookies no requieren consentimiento previo.</p>"
       },
       {
-        "title": "4. Analyse d'audience et de performance",
-        "content": "<p>Ce site utilise les outils <strong>Vercel Web Analytics</strong> et <strong>Vercel Speed Insights</strong> pour mesurer de manière anonyme l'audience et les performances techniques des pages. Ces outils sont conçus pour respecter la vie privée (privacy-friendly), n'utilisent aucun cookie de pistage, et ne collectent aucune donnée personnelle identifiable. Ils respectent par défaut les exigences du RGPD et de la directive ePrivacy, et ne nécessitent par conséquent pas de recueil de consentement (bandeau cookies).</p>"
+        "title": "4. Análisis de audiencia y rendimiento",
+        "content": "<p>Este sitio utiliza las herramientas <strong>Vercel Web Analytics</strong> y <strong>Vercel Speed Insights</strong> para medir de forma anónima la audiencia y el rendimiento técnico de las páginas. Estas herramientas están diseñadas para respetar la privacidad (privacy-friendly), no utilizan cookies de seguimiento y no recogen datos personales identificables. Cumplen por defecto con los requisitos del RGPD y la directiva ePrivacy, y por lo tanto no requieren la obtención de consentimiento (banner de cookies).</p>"
       },
       {
-        "title": "5. Vos droits (RGPD)",
-        "content": "<p>Conformément à la réglementation européenne (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants concernant vos données personnelles :</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Droit d'accès et de rectification.</li><li>Droit à l'effacement (droit à l'oubli).</li><li>Droit d'opposition ou de limitation du traitement.</li></ul><p className=\"mt-4\">Pour exercer ces droits, vous pouvez nous contacter directement par e-mail à l'adresse : <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>.</p>"
+        "title": "5. Sus derechos (RGPD)",
+        "content": "<p>De conformidad con la normativa europea (RGPD), dispone de los siguientes derechos relativos a sus datos personales:</p><ul className=\"list-disc list-inside mt-4 space-y-2 text-gray-400\"><li>Derecho de acceso y rectificación.</li><li>Derecho de supresión (derecho al olvido).</li><li>Derecho de oposición o limitación del tratamiento.</li></ul><p className=\"mt-4\">Para ejercer estos derechos, puede ponerse en contacto con nosotros directamente por correo electrónico a la dirección: <a href=\"mailto:julienjacquemartofficiel@gmail.com\" className=\"text-gold-light hover:underline\">julienjacquemartofficiel@gmail.com</a>.</p>"
       },
       {
-        "title": "6. Sécurité des données",
-        "content": "<p>Nous mettons en œuvre toutes les mesures de sécurité techniques nécessaires pour protéger vos échanges (le site est sécurisé par un protocole HTTPS) et empêcher tout accès non autorisé à vos informations de contact.</p>"
+        "title": "6. Seguridad de los datos",
+        "content": "<p>Implementamos todas las medidas de seguridad técnicas necesarias para proteger sus intercambios (el sitio está protegido por un protocolo HTTPS) y prevenir el acceso no autorizado a su información de contacto.</p>"
       }
     ],
-    "title": "Politique de Confidentialité"
+    "title": "Política de Privacidad"
   },
   "Terms": {
     "sections": [
       {
-        "title": "1. Objet",
-        "content": "<p>Les présentes Conditions Générales d'Utilisation (CGU) ont pour objet de définir les modalités et conditions dans lesquelles l'éditeur met le site <em>julienjacquemart.com</em> à la disposition de ses utilisateurs, ainsi que la manière dont les utilisateurs accèdent au site et utilisent ses services.</p><p className=\"mt-4\">Toute connexion au site est subordonnée au respect des présentes conditions.</p>"
+        "title": "1. Objeto",
+        "content": "<p>Las presentes Condiciones Generales de Uso (CGU) tienen por objeto definir las modalidades y condiciones en las que el editor pone el sitio <em>julienjacquemart.com</em> a disposición de sus usuarios, así como la forma en que los usuarios acceden al sitio y utilizan sus servicios.</p><p className=\"mt-4\">Todo acceso y uso del sitio está sujeto al cumplimiento de estas condiciones.</p>"
       },
       {
-        "title": "2. Accès au site",
-        "content": "<p>L'éditeur s'efforce de permettre l'accès au site 24 heures sur 24, 7 jours sur 7, sauf en cas de force majeure ou d'un événement hors du contrôle de l'éditeur, et sous réserve des éventuelles pannes et interventions de maintenance nécessaires au bon fonctionnement du site et des services.</p><p className=\"mt-4\">Par conséquent, l'éditeur ne peut garantir une disponibilité du site et/ou des services, une fiabilité des transmissions et des performances en termes de temps de réponse ou de qualité.</p>"
+        "title": "2. Acceso al sitio web",
+        "content": "<p>El editor se esfuerza por permitir el acceso al sitio las 24 horas del día, los 7 días de la semana, salvo en caso de fuerza mayor o de un acontecimiento fuera del control del editor, y sujeto a posibles averías e intervenciones de mantenimiento necesarias para el correcto funcionamiento del sitio y de los servicios.</p><p className=\"mt-4\">Por lo tanto, el editor no puede garantizar la disponibilidad del sitio y/o de los servicios, la fiabilidad de las transmisiones ni el rendimiento en términos de tiempo de respuesta o calidad.</p>"
       },
       {
-        "title": "3. Contenu et Responsabilité",
-        "content": "<p>Les informations fournies sur le site le sont à titre indicatif. L'éditeur s'efforce de les tenir à jour et exactes, mais ne saurait garantir l'exactitude, la complétude ou l'actualité des informations diffusées.</p><p className=\"mt-4\">L'utilisateur assume seul l'entière responsabilité de l'utilisation des informations et contenus du présent site. L'éditeur ne pourra en aucun cas être tenu responsable de tout dommage de quelque nature qu'il soit résultant de l'interprétation ou de l'utilisation des informations et/ou documents disponibles sur ce site.</p>"
+        "title": "3. Contenido y Responsabilidad",
+        "content": "<p>La información proporcionada en el sitio es de carácter puramente indicativo. El editor se esfuerza por mantenerla actualizada y exacta, pero no puede garantizar la exactitud, exhaustividad o actualidad de la información publicada.</p><p className=\"mt-4\">El usuario asume por sí solo la plena responsabilidad por el uso de la información y los contenidos de este sitio. El editor no podrá en ningún caso ser considerado responsable de ningún daño, de cualquier naturaleza, que resulte de la interpretación o del uso de la información y/o los documentos disponibles en este sitio.</p>"
       },
       {
-        "title": "4. Liens Hypertextes",
-        "content": "<p>Le site peut contenir des liens hypertextes vers d'autres sites présents sur le réseau Internet. Les liens vers ces autres ressources vous font quitter le présent site.</p><p className=\"mt-4\">Il est possible de créer un lien vers la page de présentation de ce site sans autorisation expresse de l'éditeur. Aucune autorisation ou demande d'information préalable ne peut être exigée par l'éditeur à l'égard d'un site qui souhaite établir un lien vers le site de l'éditeur. Toutefois, l'éditeur se réserve le droit de demander la suppression d'un lien qu'il estime non conforme à l'objet de son site.</p>"
+        "title": "4. Enlaces hipertexto",
+        "content": "<p>Este sitio web puede contener enlaces hipertexto hacia otros sitios web de Internet. Los enlaces hacia estos otros recursos le hacen abandonar este sitio web.</p><p className=\"mt-4\">Es posible crear un enlace a la página de inicio de este sitio sin autorización expresa del editor. El editor no podrá exigir ninguna autorización o solicitud de información previa a un sitio que desee establecer un enlace hacia el sitio del editor. No obstante, el editor se reserva el derecho de solicitar la eliminación de un enlace que considere no conforme con el propósito de su sitio.</p>"
       },
       {
-        "title": "5. Modification des CGU",
-        "content": "<p>L'éditeur se réserve la possibilité de modifier, à tout moment et sans préavis, les présentes conditions d'utilisation afin de les adapter aux évolutions du site et/ou de son exploitation.</p>"
+        "title": "5. Modificación de las CGU",
+        "content": "<p>El editor se reserva el derecho de modificar, en cualquier momento y sin previo aviso, estas condiciones de uso para adaptarlas a los cambios en el sitio y/o en su funcionamiento.</p>"
       },
       {
-        "title": "6. Droit Applicable",
-        "content": "<p>Tant le présent site que les modalités et conditions de son utilisation sont régis par le droit français, quel que soit le lieu d'utilisation. En cas de contestation éventuelle, et après l'échec de toute tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents pour connaître de ce litige.</p>"
+        "title": "6. Ley Aplicable",
+        "content": "<p>Tanto este sitio como las modalidades y condiciones de su uso se rigen por la legislación francesa, independientemente del lugar de uso. En caso de posible controversia, y tras el fracaso de cualquier intento de encontrar una solución amistosa, los tribunales franceses serán los únicos competentes para conocer de este litigio.</p>"
       }
     ],
-    "title": "C.G.U.",
-    "subtitle": "Conditions Générales d'Utilisation"
+    "title": "Términos y Condiciones",
+    "subtitle": "Condiciones Generales de Uso"
   }
 }
