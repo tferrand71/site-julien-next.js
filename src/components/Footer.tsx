@@ -8,6 +8,7 @@ export default function Footer() {
   const tContact = useTranslations('Contact');
   const tNav = useTranslations('Navigation');
   const tHero = useTranslations('Hero');
+  const tFooter = useTranslations('Footer');
   const email = tContact('email');
 
   if (pathname.includes('/admin')) return null;
@@ -41,16 +42,21 @@ export default function Footer() {
             <p className="text-gray-400 font-light italic font-serif text-lg">
               {tHero('title')}
             </p>
-            <p className="text-gray-500 font-light text-sm max-w-sm leading-relaxed">
-              "La musique donne une âme à nos cœurs et des ailes à la pensée."
-            </p>
+            <div className="flex flex-col space-y-2 mt-4">
+              <p className="text-gray-500 font-light text-sm max-w-sm leading-relaxed italic">
+                {tFooter('quote')}
+              </p>
+              <p className="text-gold/70 font-serif text-xs tracking-widest uppercase">
+                {tFooter('author')}
+              </p>
+            </div>
           </div>
 
           {/* Navigation */}
           <div className="col-span-1 md:col-span-3 flex flex-col items-center md:items-start">
             <h3 className="font-serif text-lg text-white tracking-widest mb-8 uppercase flex items-center gap-4">
               <span className="w-8 h-[1px] bg-gold/50"></span>
-              Menu
+              {tFooter('menu')}
             </h3>
             <div className="flex flex-col space-y-4 items-center md:items-start">
               {[
@@ -79,7 +85,7 @@ export default function Footer() {
             
             <div className="space-y-6 flex flex-col items-center md:items-start">
               <div className="group">
-                <p className="text-gray-500 text-xs tracking-widest uppercase mb-1">Management & Booking</p>
+                <p className="text-gray-500 text-xs tracking-widest uppercase mb-1">{tFooter('management')}</p>
                 <a href={`mailto:${email}`} className="text-gold hover:text-white transition-colors duration-300 font-light text-lg">
                   {email}
                 </a>
@@ -145,7 +151,7 @@ export default function Footer() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
                   </div>
-                  <span className="font-semibold text-xs tracking-[0.2em] uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Contact</span>
+                  <span className="font-semibold text-xs tracking-[0.2em] uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">{tFooter('contact')}</span>
                 </Link>
               </div>
             </div>
@@ -158,14 +164,14 @@ export default function Footer() {
           <div className="text-gray-500 text-xs font-light tracking-widest uppercase text-center md:text-left leading-loose">
             © {new Date().getFullYear()} Julien Jacquemart. <br className="md:hidden" />
             <span className="md:inline-block md:ml-2">
-              Développé par <a href="https://tobias-ferrand.ovh" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors duration-300 border-b border-transparent hover:border-gold pb-0.5">Tobias Ferrand</a>
+              {tFooter('developedBy')} <a href="https://tobias-ferrand.ovh" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors duration-300 border-b border-transparent hover:border-gold pb-0.5">Tobias Ferrand</a>
             </span>
           </div>
           
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-xs font-light text-gray-500 uppercase tracking-widest">
-            <Link href="/legal" className="hover:text-white transition-colors duration-300">Mentions Légales</Link>
-            <Link href="/privacy" className="hover:text-white transition-colors duration-300">Confidentialité</Link>
-            <Link href="/terms" className="hover:text-white transition-colors duration-300">CGU</Link>
+            <Link href="/legal" className="hover:text-white transition-colors duration-300">{tFooter('legal')}</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors duration-300">{tFooter('privacy')}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors duration-300">{tFooter('terms')}</Link>
             
             {/* Divider dot */}
             <span className="w-1 h-1 rounded-full bg-white/20 hidden md:block"></span>
@@ -174,7 +180,7 @@ export default function Footer() {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-700">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
-              Admin
+              {tFooter('admin')}
             </a>
           </div>
         </div>

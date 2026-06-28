@@ -134,5 +134,16 @@
         "content": "<p>Tant le présent site que les modalités et conditions de son utilisation sont régis par le droit français, quel que soit le lieu d'utilisation. En cas de contestation éventuelle, et après l'échec de toute tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents pour connaître de ce litige.</p>"
       }
     ]
+  },
+  "Footer": {
+    "quote": "\"La musique donne une âme à nos cœurs et des ailes à la pensée.\"",
+    "author": "— Platon",
+    "menu": "Menu",
+    "management": "Management & Booking",
+    "developedBy": "Développé par",
+    "legal": "Mentions Légales",
+    "privacy": "Confidentialité",
+    "terms": "CGU",
+    "admin": "Admin"
   }
 }

@@ -134,5 +134,16 @@
     ],
     "title": "Términos y Condiciones",
     "subtitle": "Condiciones Generales de Uso"
+  },
+  "Footer": {
+    "quote": "\"La música da alma al universo, alas a la mente, vuelos a la imaginación y vida a todas las cosas.\"",
+    "author": "— Platón",
+    "menu": "Menú",
+    "management": "Management y Contratación",
+    "developedBy": "Desarrollado por",
+    "legal": "Aviso Legal",
+    "privacy": "Privacidad",
+    "terms": "Condiciones Generales",
+    "admin": "Admin"
   }
 }

@@ -134,5 +134,16 @@
     ],
     "title": "C.G.U.",
     "subtitle": "Allgemeine Nutzungsbedingungen"
+  },
+  "Footer": {
+    "quote": "\"Die Musik gibt dem Universum eine Seele, dem Geist Flügel, der Fantasie Flug und allem Leben.\"",
+    "author": "— Platon",
+    "menu": "Menü",
+    "management": "Management & Buchung",
+    "developedBy": "Entwickelt von",
+    "legal": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "admin": "Admin"
   }
 }

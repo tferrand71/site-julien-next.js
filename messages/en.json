@@ -134,5 +134,16 @@
     ],
     "title": "C.G.U.",
     "subtitle": "Terms and Conditions of Use"
+  },
+  "Footer": {
+    "quote": "\"Music gives a soul to the universe, wings to the mind, flight to the imagination, and life to everything.\"",
+    "author": "— Plato",
+    "menu": "Menu",
+    "management": "Management & Booking",
+    "developedBy": "Developed by",
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "admin": "Admin"
   }
 }
