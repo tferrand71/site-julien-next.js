@@ -58,6 +58,13 @@ model VideoConfig {
   order     Int     @default(0)
 }
 
+model Photo {
+  id        String   @id @default(uuid())
+  url       String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
 model Repertoire {
   id        String   @id @default(uuid())
   category  String

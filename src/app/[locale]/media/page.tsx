@@ -1,11 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import MediaGallery, { VideoItem } from '@/components/MediaGallery';
 import { getVideoConfigs, getYouTubeVideos } from '@/app/actions/media';
+import { getPhotos } from '@/app/actions/photos';
+
+export const revalidate = 3600;
 
 export default async function MediaPage() {
   const t = await getTranslations('Media');
   let videos = await getYouTubeVideos();
   const configs = await getVideoConfigs();
+  const photos = await getPhotos();
 
   // Merge videos with config
   const videosWithOrder = videos.map((v: any, i: number) => {
@@ -30,7 +34,7 @@ export default async function MediaPage() {
           <div className="w-20 h-1 bg-gold mx-auto"></div>
         </div>
 
-        <MediaGallery videos={videos} />
+        <MediaGallery videos={videos} photos={photos} />
       </div>
     </main>
   );
