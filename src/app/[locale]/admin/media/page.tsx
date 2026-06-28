@@ -17,8 +17,8 @@ export default function AdminMediaPage() {
   const [photos, setPhotos] = useState<any[]>([]);
   const [loadingPhotos, setLoadingPhotos] = useState(true);
   const [uploading, setUploading] = useState(false);
-  const [photoFile, setPhotoFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [photoFiles, setPhotoFiles] = useState<File[]>([]);
+  const [previewUrls, setPreviewUrls] = useState<string[]>([]);
 
   useEffect(() => {
     loadVideos();
@@ -101,24 +101,26 @@ export default function AdminMediaPage() {
   };
 
   const handlePhotoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setPhotoFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => setPreviewUrl(reader.result as string);
-      reader.readAsDataURL(file);
+    const files = Array.from(e.target.files || []);
+    if (files.length > 0) {
+      previewUrls.forEach(url => URL.revokeObjectURL(url)); // Cleanup old URLs
+      setPhotoFiles(files);
+      const urls = files.map(f => URL.createObjectURL(f));
+      setPreviewUrls(urls);
     }
   };
 
   const handleUploadPhoto = async () => {
-    if (!photoFile) return;
+    if (photoFiles.length === 0) return;
     setUploading(true);
     try {
-      const formData = new FormData();
-      formData.append('image', photoFile);
-      await addPhoto(formData);
-      setPhotoFile(null);
-      setPreviewUrl(null);
+      await Promise.all(photoFiles.map(async (file) => {
+        const formData = new FormData();
+        formData.append('image', file);
+        await addPhoto(formData);
+      }));
+      setPhotoFiles([]);
+      setPreviewUrls([]);
       const fileInput = document.getElementById('photo-upload') as HTMLInputElement;
       if (fileInput) fileInput.value = '';
       await loadPhotos();
@@ -238,17 +240,21 @@ export default function AdminMediaPage() {
           
           <div className="bg-[#111] border border-white/5 p-6 mb-8 flex flex-col sm:flex-row gap-6 items-end">
             <div className="flex-grow w-full">
-              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Ajouter une nouvelle photo</label>
-              <input id="photo-upload" type="file" accept="image/*" onChange={handlePhotoSelect} className="w-full text-white file:mr-4 file:py-2 file:px-4 file:rounded-none file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-white hover:file:bg-white/20" />
+              <label className="block text-gold text-sm font-light tracking-widest uppercase mb-3">Ajouter des photos</label>
+              <input id="photo-upload" type="file" accept="image/*" multiple onChange={handlePhotoSelect} className="w-full text-white file:mr-4 file:py-2 file:px-4 file:rounded-none file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-white hover:file:bg-white/20" />
             </div>
-            {previewUrl && (
-              <div className="relative w-32 h-20 bg-black flex-shrink-0">
-                <Image src={previewUrl} alt="Aperçu" fill className="object-cover" />
+            {previewUrls.length > 0 && (
+              <div className="flex gap-2 flex-wrap max-w-sm">
+                {previewUrls.map((url, i) => (
+                  <div key={i} className="relative w-20 h-16 bg-black flex-shrink-0">
+                    <Image src={url} alt={`Aperçu ${i}`} fill className="object-cover" />
+                  </div>
+                ))}
               </div>
             )}
             <button 
               onClick={handleUploadPhoto}
-              disabled={!photoFile || uploading}
+              disabled={photoFiles.length === 0 || uploading}
               className="bg-gold text-black px-6 py-2.5 font-semibold tracking-widest uppercase text-sm disabled:opacity-50 w-full sm:w-auto"
             >
               {uploading ? 'Upload...' : 'Uploader'}
