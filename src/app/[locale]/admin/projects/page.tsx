@@ -17,6 +17,7 @@ export default function AdminProjectsPage() {
   const [activeTab, setActiveTab] = useState('fr');
   const [translating, setTranslating] = useState(false);
   const [autoTranslate, setAutoTranslate] = useState(true);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const [newProject, setNewProject] = useState({
     status: 'CURRENT',
@@ -39,6 +40,7 @@ export default function AdminProjectsPage() {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setImageFile(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setNewProject({ ...newProject, imageData: reader.result as string });
@@ -53,6 +55,8 @@ export default function AdminProjectsPage() {
     }
     
     try {
+      let finalProject = { ...newProject };
+
       if (autoTranslate) {
         const { translateText } = await import('@/app/actions/translate');
         
@@ -64,16 +68,32 @@ export default function AdminProjectsPage() {
         const desc_de = await translateText(newProject.desc_fr, 'de');
         const desc_es = await translateText(newProject.desc_fr, 'es');
 
-        await addProject({
-          ...newProject,
+        finalProject = {
+          ...finalProject,
           title_en, title_de, title_es,
           desc_en, desc_de, desc_es
-        });
-      } else {
-        await addProject(newProject);
+        };
       }
 
+      const formData = new FormData();
+      formData.append('status', finalProject.status);
+      formData.append('title_fr', finalProject.title_fr);
+      formData.append('title_en', finalProject.title_en);
+      formData.append('title_de', finalProject.title_de);
+      formData.append('title_es', finalProject.title_es);
+      formData.append('desc_fr', finalProject.desc_fr);
+      formData.append('desc_en', finalProject.desc_en);
+      formData.append('desc_de', finalProject.desc_de);
+      formData.append('desc_es', finalProject.desc_es);
+
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      await addProject(formData);
+
       setShowAdd(false);
+      setImageFile(null);
       setNewProject({
         status: 'CURRENT',
         title_fr: '', title_en: '', title_de: '', title_es: '',
@@ -81,8 +101,8 @@ export default function AdminProjectsPage() {
         imageData: ''
       });
       fetchProjects();
-    } catch (e) {
-      alert("Erreur lors de l'ajout.");
+    } catch (e: any) {
+      alert("Erreur lors de l'ajout: " + (e.message || ''));
     }
   };
 

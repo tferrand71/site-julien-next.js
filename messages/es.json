@@ -7,7 +7,8 @@
     "repertoire": "Repertorio",
     "projects": "Proyectos",
     "seasons": "Temporadas Pasadas",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "music_dropdown": "Música"
   },
   "Hero": {
     "title": "Director de Orquesta",
@@ -25,11 +26,15 @@
     "p8": "Reconocido por su eclecticismo, rigor y compromiso con la transmisión musical, Julien Jacquemart defiende una visión de la dirección que combina excelencia artística, apertura al público y apoyo a la creación contemporánea. Su prometedora carrera y su apego a los territorios locales hacen de él uno de los representantes de la nueva generación de directores franceses.",
     "download_title": "Prensa y Descargas",
     "download_bio": "Descargar Biografía",
-    "download_cv": "Descargar CV"
+    "download_cv": "Descargar CV",
+    "download_subtitle": "Documentos profesionales de libre acceso.",
+    "read_more": "Leer más",
+    "drafting": "Biografía en preparación..."
   },
   "Events": {
     "title": "Agenda",
     "upcoming": "Próximamente",
+    "view_all": "Ver toda la agenda",
     "empty": "No hay eventos programados por el momento.",
     "event1_title": "Concierto - Brass Band Æolus",
     "event1_date": "Mayo 2025 - París",

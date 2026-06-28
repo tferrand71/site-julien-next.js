@@ -1,7 +1,19 @@
 'use server';
 
+import { requireAdmin } from '@/lib/auth';
+import { z } from 'zod';
+
+const TranslateInputSchema = z.object({
+  text: z.string().min(1).max(10000),
+  targetLang: z.enum(['fr', 'en', 'de', 'es', 'FR', 'EN', 'DE', 'ES']),
+});
+
 export async function translateText(text: string, targetLang: string) {
-  if (!text) return '';
+  await requireAdmin();
+
+  const validated = TranslateInputSchema.parse({ text, targetLang });
+
+  if (!validated.text) return '';
   
   const apiKey = process.env.DEEPL_API_KEY;
   if (!apiKey) {
@@ -9,7 +21,7 @@ export async function translateText(text: string, targetLang: string) {
   }
 
   // Map targetLang to DeepL supported codes
-  let deeplTargetLang = targetLang.toUpperCase();
+  let deeplTargetLang = validated.targetLang.toUpperCase();
   if (deeplTargetLang === 'EN') deeplTargetLang = 'EN-US';
 
   const isFreeAPI = apiKey.endsWith(':fx');
@@ -25,7 +37,7 @@ export async function translateText(text: string, targetLang: string) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        text: [text],
+        text: [validated.text],
         target_lang: deeplTargetLang,
       }),
     });

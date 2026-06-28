@@ -2,23 +2,38 @@
 
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { requireAdmin } from '@/lib/auth';
+import { z } from 'zod';
+
+const VideoConfigSchema = z.object({
+  youtubeId: z.string().min(1).max(50),
+  isHidden: z.boolean(),
+  order: z.number().int().min(0),
+});
+
+const VideoConfigArraySchema = z.array(VideoConfigSchema);
 
 export async function getVideoConfigs() {
   return await prisma.videoConfig.findMany();
 }
 
 export async function updateVideoConfig(youtubeId: string, isHidden: boolean, order: number) {
+  await requireAdmin();
+  const validated = VideoConfigSchema.parse({ youtubeId, isHidden, order });
+
   await prisma.videoConfig.upsert({
-    where: { youtubeId },
-    update: { isHidden, order },
-    create: { youtubeId, isHidden, order }
+    where: { youtubeId: validated.youtubeId },
+    update: { isHidden: validated.isHidden, order: validated.order },
+    create: { youtubeId: validated.youtubeId, isHidden: validated.isHidden, order: validated.order }
   });
   revalidatePath('/', 'layout');
 }
 
-export async function updateAllVideoConfigs(configs: { youtubeId: string, isHidden: boolean, order: number }[]) {
-  // We use a transaction to update all at once
-  const ops = configs.map(config => 
+export async function updateAllVideoConfigs(configs: z.infer<typeof VideoConfigArraySchema>) {
+  await requireAdmin();
+  const validated = VideoConfigArraySchema.parse(configs);
+
+  const ops = validated.map(config => 
     prisma.videoConfig.upsert({
       where: { youtubeId: config.youtubeId },
       update: { isHidden: config.isHidden, order: config.order },

@@ -46,7 +46,7 @@ export default function Biography({ title, content, cvUrl, bioUrl }: { title: st
               </motion.p>
             ))
           ) : (
-            <p className="text-center italic text-gray-500">Biographie en cours de rédaction...</p>
+            <p className="text-center italic text-gray-500">{t('drafting')}</p>
           )}
         </div>
 
@@ -63,7 +63,7 @@ export default function Biography({ title, content, cvUrl, bioUrl }: { title: st
               {t('download_title')}
             </h3>
             <p className="text-gray-400 font-light max-w-xl mx-auto">
-              Documents professionnels en libre accès.
+              {t('download_subtitle')}
             </p>
           </div>
 

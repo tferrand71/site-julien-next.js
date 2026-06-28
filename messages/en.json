@@ -7,7 +7,8 @@
     "repertoire": "Repertoire",
     "projects": "Projects",
     "seasons": "Past Seasons",
-    "contact": "Contact"
+    "contact": "Contact",
+    "music_dropdown": "Music"
   },
   "Hero": {
     "title": "Conductor",
@@ -25,11 +26,15 @@
     "p8": "Recognized for his eclecticism, rigor, and commitment to music transmission, Julien Jacquemart defends a vision of conducting that combines artistic excellence, openness to audiences, and support for contemporary creation. His promising career and attachment to local territories make him one of the representatives of the new generation of French conductors.",
     "download_title": "Press & Downloads",
     "download_bio": "Download Biography",
-    "download_cv": "Download CV"
+    "download_cv": "Download CV",
+    "download_subtitle": "Professional documents available for download.",
+    "read_more": "Read more",
+    "drafting": "Biography coming soon..."
   },
   "Events": {
     "title": "Agenda",
     "upcoming": "Upcoming",
+    "view_all": "View full agenda",
     "empty": "No events scheduled at the moment.",
     "event1_title": "Concert - Brass Band Æolus",
     "event1_date": "May 2025 - Paris",

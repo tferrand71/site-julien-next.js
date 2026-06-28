@@ -2,7 +2,7 @@ import Biography from '@/components/Biography';
 import { getBiography } from '@/app/actions/biography';
 import { getTranslations } from 'next-intl/server';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export default async function BiographyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

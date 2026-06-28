@@ -7,7 +7,8 @@
     "repertoire": "Repertoire",
     "projects": "Projekte",
     "seasons": "Vergangene Spielzeiten",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "music_dropdown": "Musik"
   },
   "Hero": {
     "title": "Dirigent",
@@ -25,11 +26,15 @@
     "p8": "Julien Jacquemart ist für seinen Eklektizismus, seine Strenge und sein Engagement für die Musikvermittlung bekannt. Er vertritt eine Vision des Dirigierens, die künstlerische Exzellenz, Offenheit für das Publikum und die Unterstützung zeitgenössischen Schaffens vereint. Seine vielversprechende Karriere und seine Verbundenheit mit lokalen Regionen machen ihn zu einem Repräsentanten der neuen Generation französischer Dirigenten.",
     "download_title": "Presse & Downloads",
     "download_bio": "Biografie Herunterladen",
-    "download_cv": "Lebenslauf Herunterladen"
+    "download_cv": "Lebenslauf Herunterladen",
+    "download_subtitle": "Berufliche Dokumente zum freien Download.",
+    "read_more": "Weiterlesen",
+    "drafting": "Biografie in Bearbeitung..."
   },
   "Events": {
     "title": "Agenda",
     "upcoming": "Bevorstehend",
+    "view_all": "Alle Termine anzeigen",
     "empty": "Zurzeit sind keine Veranstaltungen geplant.",
     "event1_title": "Konzert - Brass Band Æolus",
     "event1_date": "Mai 2025 - Paris",

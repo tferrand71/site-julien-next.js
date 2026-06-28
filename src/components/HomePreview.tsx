@@ -38,7 +38,7 @@ export default function HomePreview({ nextEvent, locale }: { nextEvent?: any, lo
               href="/biography" 
               className="inline-block px-8 py-3 border border-gold/50 text-gold hover:bg-gold hover:text-black transition-all duration-500 font-light tracking-widest uppercase text-sm"
             >
-              Lire la suite
+              {tBio('read_more')}
             </Link>
           </div>
         </motion.div>
@@ -71,7 +71,7 @@ export default function HomePreview({ nextEvent, locale }: { nextEvent?: any, lo
               href="/events" 
               className="inline-block px-8 py-3 border border-white/20 text-white hover:border-white transition-all duration-500 font-light tracking-widest uppercase text-sm"
             >
-              Voir tout l'agenda
+              {tEvents('view_all')}
             </Link>
           </div>
         </motion.div>

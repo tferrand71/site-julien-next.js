@@ -7,7 +7,8 @@
     "repertoire": "Répertoire",
     "projects": "Projets",
     "seasons": "Saisons Passées",
-    "contact": "Contact"
+    "contact": "Contact",
+    "music_dropdown": "Musique"
   },
   "Hero": {
     "title": "Chef d'Orchestre",
@@ -25,11 +26,15 @@
     "p8": "Reconnu pour son éclectisme, sa rigueur et son engagement dans la transmission de la musique, Julien Jacquemart défend une vision de la direction d'orchestre alliant exigence artistique, ouverture aux publics et soutien à la création contemporaine. Sa carrière prometteuse et son attachement aux territoires font de lui l'un des représentants de la jeune génération de chefs français.",
     "download_title": "Presse & Téléchargements",
     "download_bio": "Télécharger la Biographie",
-    "download_cv": "Télécharger le CV"
+    "download_cv": "Télécharger le CV",
+    "download_subtitle": "Documents professionnels en libre accès.",
+    "read_more": "Lire la suite",
+    "drafting": "Biographie en cours de rédaction..."
   },
   "Events": {
     "title": "Agenda",
     "upcoming": "À venir",
+    "view_all": "Voir tout l'agenda",
     "empty": "Aucun événement programmé pour le moment.",
     "event1_title": "Concert - Brass Band Æolus",
     "event1_date": "Mai 2025 - Paris",

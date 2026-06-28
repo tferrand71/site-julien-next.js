@@ -1,9 +1,8 @@
 import { getEvents } from '@/app/actions/events';
 import { getTranslations } from 'next-intl/server';
-import EventsList from './EventsList';
+import EventsList from './EventsList'; // Force IDE refresh
 
-export const dynamic = 'force-dynamic';
-
+export const revalidate = 3600;
 export default async function EventsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('Events');

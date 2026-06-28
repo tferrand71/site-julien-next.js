@@ -4,7 +4,7 @@ import { getHeroContent } from '@/app/actions/hero';
 import { getEvents } from '@/app/actions/events';
 import { getTranslations } from 'next-intl/server';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
