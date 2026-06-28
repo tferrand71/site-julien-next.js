@@ -2,6 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { Playfair_Display, Lato } from 'next/font/google';
 import '../globals.css';
 import type { Metadata } from 'next';
@@ -143,6 +145,8 @@ export default async function LocaleLayout({
           </div>
           <Footer />
         </NextIntlClientProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
