@@ -14,8 +14,30 @@ const HeroContentSchema = z.object({
   subtitle_en: z.string().max(500).optional(),
   subtitle_de: z.string().max(500).optional(),
   subtitle_es: z.string().max(500).optional(),
+  photoUrl: z.string().optional(),
+  quote_fr: z.string().optional(),
+  quote_en: z.string().optional(),
+  quote_de: z.string().optional(),
+  quote_es: z.string().optional(),
+  quoteAuthor: z.string().optional(),
+  quoteEnabled: z.boolean().optional(),
 });
 
+import { put } from '@vercel/blob';
+
+export async function uploadHeroPhoto(formData: FormData) {
+  await requireAdmin();
+  
+  const file = formData.get('image') as File | null;
+  if (!file) {
+    throw new Error('Image requise');
+  }
+
+  // Upload to Vercel Blob
+  const blob = await put(`hero/${file.name}`, file, { access: 'public' });
+  
+  return blob.url;
+}
 export async function getHeroContent() {
   let content = await prisma.heroContent.findFirst();
   if (!content) {

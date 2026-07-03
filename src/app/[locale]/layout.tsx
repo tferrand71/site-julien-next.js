@@ -23,6 +23,7 @@ const lato = Lato({
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { getHeroContent } from '@/app/actions/hero';
 import MusicalBackground from '@/components/MusicalBackground';
 
 const SITE_URL = 'https://julienjacquemart.com';
@@ -86,6 +87,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       index: true,
       follow: true,
     },
+    icons: {
+      icon: '/logo.webp',
+      shortcut: '/logo.webp',
+      apple: '/logo.webp',
+    },
   };
 }
 
@@ -103,6 +109,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const heroContent = await getHeroContent();
 
   // JSON-LD Schema.org structured data
   const jsonLd = {
@@ -143,7 +150,7 @@ export default async function LocaleLayout({
           <div className="relative z-10 flex-grow flex flex-col">
             {children}
           </div>
-          <Footer />
+          <Footer heroContent={heroContent} locale={locale} />
         </NextIntlClientProvider>
         <SpeedInsights />
         <Analytics />

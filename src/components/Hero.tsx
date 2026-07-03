@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function Hero({ title, subtitle }: { title: string, subtitle: string }) {
+export default function Hero({ title, subtitle, photoUrl }: { title: string, subtitle: string, photoUrl?: string }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -80,7 +80,7 @@ export default function Hero({ title, subtitle }: { title: string, subtitle: str
                 className="w-full h-full relative"
               >
                 <Image 
-                  src="/photo.jpg" 
+                  src={photoUrl || "/photo.jpg"} 
                   alt="Julien Jacquemart Portrait" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -18,7 +18,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <main className="min-h-screen flex flex-col">
-      <Hero title={title} subtitle={subtitle} />
+      <Hero title={title} subtitle={subtitle} photoUrl={(content as any).photoUrl} />
       <HomePreview nextEvent={nextEvent} locale={locale} />
     </main>
   );

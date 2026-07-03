@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 
-export default function Footer() {
+export default function Footer({ heroContent, locale }: { heroContent?: any, locale?: string }) {
   const pathname = usePathname();
   const tContact = useTranslations('Contact');
   const tNav = useTranslations('Navigation');
@@ -42,14 +42,16 @@ export default function Footer() {
             <p className="text-gray-400 font-light italic font-serif text-lg">
               {tHero('title')}
             </p>
-            <div className="flex flex-col space-y-2 mt-4">
-              <p className="text-gray-500 font-light text-sm max-w-sm leading-relaxed italic">
-                {tFooter('quote')}
-              </p>
-              <p className="text-gold/70 font-serif text-xs tracking-widest uppercase">
-                {tFooter('author')}
-              </p>
-            </div>
+            {heroContent?.quoteEnabled !== false && (
+              <div className="flex flex-col space-y-2 mt-4">
+                <p className="text-gray-500 font-light text-sm max-w-sm leading-relaxed italic">
+                  {heroContent?.[`quote_${locale || 'fr'}`] || tFooter('quote')}
+                </p>
+                <p className="text-gold/70 font-serif text-xs tracking-widest uppercase">
+                  {heroContent?.quoteAuthor || tFooter('author')}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Navigation */}

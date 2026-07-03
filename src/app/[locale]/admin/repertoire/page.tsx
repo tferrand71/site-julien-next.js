@@ -118,19 +118,30 @@ export default function AdminRepertoirePage() {
           const categoryItems = items.filter(i => i.category === cat);
           if (categoryItems.length === 0) return null;
 
+          const groupedByComposer = categoryItems.reduce((acc: Record<string, any[]>, item: any) => {
+            const comp = item.composer.trim();
+            if (!acc[comp]) acc[comp] = [];
+            acc[comp].push(item);
+            return acc;
+          }, {});
+
           return (
             <div key={cat}>
               <h2 className="text-2xl font-serif text-gold mb-4 border-b border-white/10 pb-2">{cat}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {categoryItems.map(item => (
-                  <div key={item.id} className="bg-[#111] border border-white/5 p-4 flex justify-between items-center group hover:border-white/20 transition-colors">
-                    <div>
-                      <p className="text-white font-semibold">{item.composer}</p>
-                      <p className="text-gray-400 font-light text-sm italic">{item.piece}</p>
-                    </div>
-                    <button onClick={() => handleDelete(item.id)} className="text-red-400 opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:text-red-300">
-                      Supprimer
-                    </button>
+                {Object.entries(groupedByComposer).map(([composer, pieces]) => (
+                  <div key={composer} className="bg-[#111] border border-white/5 p-4 flex flex-col hover:border-white/20 transition-colors">
+                    <h3 className="text-white font-semibold mb-3">{composer}</h3>
+                    <ul className="space-y-2">
+                      {(pieces as any[]).map((item: any) => (
+                        <li key={item.id} className="flex justify-between items-center group">
+                          <span className="text-gray-400 font-light text-sm italic">- {item.piece}</span>
+                          <button onClick={() => handleDelete(item.id)} className="text-red-400 opacity-0 group-hover:opacity-100 transition-opacity px-2 hover:text-red-300 text-xs uppercase tracking-wider">
+                            Supprimer
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>

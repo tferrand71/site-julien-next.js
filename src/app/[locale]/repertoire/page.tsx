@@ -29,6 +29,13 @@ export default async function RepertoirePage() {
             const catItems = items.filter(i => i.category === cat);
             if (catItems.length === 0) return null;
 
+            const groupedByComposer = catItems.reduce((acc: Record<string, any[]>, item: any) => {
+              const comp = item.composer.trim();
+              if (!acc[comp]) acc[comp] = [];
+              acc[comp].push(item);
+              return acc;
+            }, {});
+
             return (
               <section key={cat} className="scroll-mt-32">
                 <h2 className="font-serif text-2xl tracking-widest text-gold mb-8 uppercase flex items-center gap-4">
@@ -36,14 +43,18 @@ export default async function RepertoirePage() {
                   {cat}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                  {catItems.map(item => (
-                    <div key={item.id} className="group border-l-2 border-white/10 pl-6 hover:border-gold transition-colors duration-500">
+                  {Object.entries(groupedByComposer).map(([composer, pieces]) => (
+                    <div key={composer} className="group border-l-2 border-white/10 pl-6 hover:border-gold transition-colors duration-500">
                       <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-gold transition-colors duration-300">
-                        {item.composer}
+                        {composer}
                       </h3>
-                      <p className="text-gray-400 font-light italic mt-1">
-                        {item.piece}
-                      </p>
+                      <ul className="mt-2 space-y-1">
+                        {(pieces as any[]).map((item: any) => (
+                          <li key={item.id} className="text-gray-400 font-light italic">
+                            {item.piece}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>

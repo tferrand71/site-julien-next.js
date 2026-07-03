@@ -17,10 +17,17 @@ model HeroContent {
   title_en    String @default("CONDUCTOR")
   title_de    String @default("DIRIGENT")
   title_es    String @default("DIRECTOR DE ORQUESTA")
-  subtitle_fr String @default("Tromboniste & Pédagogue")
-  subtitle_en String @default("Trombonist & Educator")
-  subtitle_de String @default("Posaunist & Pädagoge")
-  subtitle_es String @default("Trombonista y Educador")
+  subtitle_fr  String  @default("Tromboniste & Pédagogue")
+  subtitle_en  String  @default("Trombonist & Educator")
+  subtitle_de  String  @default("Posaunist & Pädagoge")
+  subtitle_es  String  @default("Trombonista y Educador")
+  photoUrl     String? @default("/photo.jpg")
+  quote_fr     String? @default("La musique est le silence qui tremble.")
+  quote_en     String? @default("Music is the silence that trembles.")
+  quote_de     String? @default("Musik ist das zitternde Schweigen.")
+  quote_es     String? @default("La música es el silencio que tiembla.")
+  quoteAuthor  String? @default("— JULIEN JACQUEMART")
+  quoteEnabled Boolean @default(true)
 }
 
 model Event {
