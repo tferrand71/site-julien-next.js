@@ -41,7 +41,7 @@ export async function uploadHeroPhoto(formData: FormData) {
 export async function getHeroContent() {
   let content = await prisma.heroContent.findFirst();
   if (!content) {
-    content = await prisma.heroContent.create({ data: {} });
+    content = await prisma.heroContent.upsert({ where: { id: 1 }, create: {}, update: {} });
   }
   return content;
 }
